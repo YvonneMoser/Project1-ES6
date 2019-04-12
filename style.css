@@ -85,3 +85,11 @@ background-image: url("img/background.png");
 background-size: 150px;
 align-items: center;
 }
+
+
+#splash {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}

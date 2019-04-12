@@ -4,7 +4,7 @@ imgShark.src = "img/shark.jpg";
 
 function Shark (canvas, y) {
   this.speed =3;
-  this.direction = -1;
+  this.directionX = -1;
   this.size = 60;
   this.canvas = canvas;
   this.ctx = this.canvas.getContext("2d");
@@ -17,5 +17,5 @@ Shark.prototype.draw = function(){
 };
 
 Shark.prototype.update = function(){
-  this.x = this.x + this.direction*this.speed;
+  this.x = this.x + this.directionX*this.speed;
 };

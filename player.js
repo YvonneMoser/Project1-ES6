@@ -33,14 +33,29 @@ Player.prototype.setDirectionY = function(newDirection){
   this.directionY = newDirection;
 }
 
-Player.prototype.checkCollision = function(){
+Player.prototype.checkCollisionShark = function(shark){
+  let collisionRight = this.x + this.size/2 > shark.x - shark.size/2;
+  let collisionLeft = this.x - this.size/2 < shark.x + shark.size/2;
+  let collisionTop = this.y - this.size/2 < shark.y + shark.size/2;
+  let collisionBottom = this.y + this.size/2 > shark.y - shark.size/2;
 
+  return collisionRight && collisionLeft && collisionTop && collisionBottom;
 };
 
-Player.prototype.checkFish = function(){};
+Player.prototype.checkFish = function(fish){
+  let collisionRight = this.x + this.size/2 > fish.x - fish.size/2;
+  let collisionLeft = this.x - this.size/2 < fish.x + fish.size/2;
+  let collisionTop = this.y - this.size/2 < fish.y + fish.size/2;
+  let collisionBottom = this.y + this.size/2 > fish.y - fish.size/2;
 
-Player.prototype.setLives = function(){};
+  return collisionRight && collisionLeft && collisionTop && collisionBottom;
+};
 
-Player.prototype.setScore = function(){};
+Player.prototype.setLives = function(){
+  this.lives--;
+};
 
-Player.prototype.checkInScreen = function(){};
+Player.prototype.setScore = function(){
+  this.score+=200;
+  console.log(this.score);
+};

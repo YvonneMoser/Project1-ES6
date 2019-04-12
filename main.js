@@ -46,7 +46,6 @@ function main(){
     <section>`); //wie kann ich bild hier einfügen? mit new Image?
 
     let gameContainer = document.querySelector("#game-container");
-    setTimeout(()=>{buildGameOverScreen()}, 3000);
 
     const width = gameContainer.offsetWidth;
     const height = gameContainer.offsetHeight;
@@ -62,11 +61,36 @@ function main(){
 
     const game = new Game(canvasGame);
 
-    //callback Gameover
-    //eventlistener -keydown - keyup -keyleft -keyright
-
-
     game.startLoop();
+    game.setGameOverCallback(buildGameOverScreen);
+    game.setGameWonCallback(buildWonScreen);
+
+
+    document.addEventListener("keydown", function(){
+      if (event.keyCode ===38){
+        game.player.setDirectionY(-1);
+      }
+      else if (event.keyCode === 40){
+        game.player.setDirectionY(1);
+      }
+      else if (event.keyCode === 37){
+        game.player.setDirectionX(-1);
+      }
+      else if (event.keyCode === 39){
+        game.player.setDirectionX(1);
+      }
+    });
+
+    document.addEventListener("keyup", function(event){
+      if (event.keyCode === 37 || event.keyCode === 39){
+        game.player.setDirectionX(0);
+      }
+      if (event.keyCode === 38 || event.keyCode === 40) {
+        game.player.setDirectionY(0);
+      }
+    });
+        //eventlistener -keydown - keyup -keyleft -keyright
+
   };
   
   
