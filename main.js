@@ -1,4 +1,4 @@
-
+console.log("here")
 "use strict";
 
 
@@ -46,6 +46,7 @@ function main(){
     <section>`); //wie kann ich bild hier einfügen? mit new Image?
 
     let gameContainer = document.querySelector("#game-container");
+    setTimeout(()=>{buildGameOverScreen()}, 3000);
 
     const width = gameContainer.offsetWidth;
     const height = gameContainer.offsetHeight;
