@@ -1,5 +1,9 @@
 "use strict";
 
+
+
+
+
 function Game (canvas){
   this.player = null;
   this.sharks = [];
@@ -25,7 +29,6 @@ Game.prototype.startLoop = function (){
       this.fishes.push(new Fish(this.canvas, randomNumber2));
     }
 
-    
 
     this.clearCanvas();
     this.updateCanvas();
@@ -52,7 +55,8 @@ Game.prototype.clearCanvas = function(){
 
 
 Game.prototype.drawCanvas = function(){
-  this.player.draw(); 
+  this.player.draw1();
+  //Hintergrund draw 
   this.sharks.forEach(function(shark){
   shark.draw();
 });

@@ -1,6 +1,10 @@
 console.log("here")
 "use strict";
 
+let imgPlayer = new Image();
+
+
+
 
 function main(){
 
@@ -17,8 +21,20 @@ function main(){
     <section id="flash">
     <section id="splash">
     <h1>Finding Nemo!</h1>
-    <div> Help Dory to find Nemo</div>
-    <button>Find Nemo!</button>
+    <div class="starttext"> Please help us to find Nemo!</br>
+    Choose your Character to start the game!</div>
+    
+    <div class="flex-button">
+    <div class="flex-img">
+    <img src="img/background.png" width="130">
+    <button class="start-button">Choose Nemo!</button>
+    </div>
+
+    <div class="flex-img">
+    <img src="img/dory-icon.png" width="100">
+    <button class="dory">Choose Dori</button>
+    </div>
+
     </section>
     </section>`);
   
@@ -28,9 +44,20 @@ function main(){
   splashSc.style.height= "70vh";
 
 
-  let buttonStart = document.querySelector("button");
+  let buttonStart = document.querySelector(".start-button");
   buttonStart.style.borderRadius = "30px";
-  buttonStart.addEventListener("click", buildGameScreen);
+  buttonStart.addEventListener("click", function(){
+    imgPlayer.src = "img/background.png";
+    buildGameScreen();
+  });
+
+let buttonDory = document.querySelector(".dory");
+buttonDory.style.borderRadius= "30px";
+buttonDory.addEventListener("click", function(){
+  imgPlayer.src = "img/dory-icon.png";
+  buildGameScreen();
+})
+
   };
 
 

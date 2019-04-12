@@ -1,7 +1,6 @@
 "use strict";
 
-let imgPlayer = new Image();
-imgPlayer.src = "img/dory-icon.png";
+
 
 function Player (canvas){
   this.canvas = canvas;
@@ -16,8 +15,12 @@ function Player (canvas){
   this.ctx = this.canvas.getContext("2d"); 
 }
 
-Player.prototype.draw = function(){
+Player.prototype.draw1 = function(){
   this.ctx.drawImage(imgPlayer, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
+};
+
+Player.prototype.draw2 = function(){
+  this.ctx.drawImage(imgPlayer2, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
 };
 
 Player.prototype.update = function(){
