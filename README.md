@@ -113,34 +113,34 @@ CSS files:
 
 
 ## Tasks
-Main - buildDom
-Main - buildSplashScreen
-Main - buildGameScreen
-Main - buildGameOverScreen
-Main - buildWonScreen
-Main - addEventListener
-Main - 4 screens transitions
-Game - GameConstructor
-Player - Player Constructor
-Player - draw()/update()
-Player - setDirection()
-Player - setLives()
-Player - setScore()
-Shark - Shark Constructor
-Shark - draw()/update()
-Fish - Fish Constructor
+- Main - buildDom
+- Main - buildSplashScreen
+- Main - buildGameScreen
+- Main - buildGameOverScreen
+- Main - buildWonScreen
+- Main - addEventListener
+- Main - 4 screens transitions
+- Game - GameConstructor
+- Player - Player Constructor
+- Player - draw()/update()
+- Player - setDirection()
+- Player - setLives()
+- Player - setScore()
+- Shark - Shark Constructor
+- Shark - draw()/update()
+- Fish - Fish Constructor
 - draw()/update()
-Player - Check CollisionWithShark
-Player - Check CollisionWithFish
-Game - addEventListener
-Game - startLoop
-Game - clear/update/draw Canvas
-Game - checkCollision (fish and sharks)
-Player - create
-Player - move
-Player - gravity
-Player - collision
-Player - jump
-Game - check win
+- Player - Check CollisionWithShark
+- Player - Check CollisionWithFish
+- Game - addEventListener
+- Game - startLoop
+- Game - clear/update/draw Canvas
+- Game - checkCollision (fish and sharks)
+- Player - create
+- Player - move
+- Player - gravity
+- Player - collision
+- Player - jump
+- Game - check win
 
 ## Links
