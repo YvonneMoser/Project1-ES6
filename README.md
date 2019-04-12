@@ -11,7 +11,7 @@ If Dory loses 3 lives by colliding with the sharks, the game is over.
 ## MVP (CANVAS)
 Canvas: The player can move up/down/right/left to avoid the sharks and catch the fishes
 
-##Backlog
+## Backlog
 Enemies
 Friends - Catch Coins
 Win Game by reaching score
@@ -38,6 +38,8 @@ function buildGameScreen(){
 
   function buildGameOverScreen(){
   
+  startloop();
+  
   };
 
   function buildWonScreen(){ 
@@ -55,10 +57,17 @@ function Game (canvas){
   this.canvas = canvas
   this.gameOver = false;
   this.gameWon = false;
-}
+  
 function startLoop(){
-
+    this.clearCanvas();
+    this.updateCanvas();
+    this.drawCanvas();
+    this.checkCollisions();
 };
+
+setGameOverCallback();
+setGameWonCallback();
+
 
 
 ## player.js
@@ -144,3 +153,12 @@ CSS files:
 - Game - check win
 
 ## Links
+
+- Trello
+Link url
+
+- Git
+URls for the project repo and deploy Link Repo Link Deploy
+
+- Slides
+URls for the project presentation (slides) Link Slides.com
