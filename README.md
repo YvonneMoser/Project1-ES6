@@ -155,10 +155,10 @@ CSS files:
 ## Links
 
 - Trello
-Link url
+Link url: https://trello.com/
 
 - Git
-URls for the project repo and deploy Link Repo Link Deploy
+
 
 - Slides
-URls for the project presentation (slides) Link Slides.com
+URls for the project presentation (slides) Link https://slides.com/
