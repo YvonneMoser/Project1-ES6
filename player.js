@@ -9,7 +9,7 @@ function Player (canvas){
   this.lives = 3;
   this.size = 60;
   this.score = 0; 
-  this.speed = 3;
+  this.speed = 6;
   this.directionX = 0;
   this.directionY = 0;
   this.ctx = this.canvas.getContext("2d"); 
@@ -22,6 +22,25 @@ Player.prototype.draw1 = function(){
 Player.prototype.draw2 = function(){
   this.ctx.drawImage(imgPlayer2, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
 };
+
+//In Vordergrund setzen!
+Player.prototype.draw3 = function(){
+  if (this.lives >=3){
+  this.live1 = this.ctx.drawImage(imgHeart, 10, 10, 25, 25);
+  this.live2 = this.ctx.drawImage(imgHeart, 40, 10, 25, 25);
+  this.live3 = this.ctx.drawImage(imgHeart, 70, 10, 25, 25);
+  }
+  if (this.lives === 2){
+    this.live1 = this.ctx.drawImage(imgHeart, 10, 10, 25, 25);
+    this.live2 = this.ctx.drawImage(imgHeart, 40, 10, 25, 25);
+  }
+  if (this.lives ===1){
+    this.live1 = this.ctx.drawImage(imgHeart, 10, 10, 25, 25);
+  }
+};
+
+
+
 
 Player.prototype.update = function(){
   this.y = this.y+this.directionY*this.speed;
@@ -61,4 +80,6 @@ Player.prototype.setLives = function(){
 Player.prototype.setScore = function(){
   this.score+=200;
   console.log(this.score);
+  return this.score;
 };
+

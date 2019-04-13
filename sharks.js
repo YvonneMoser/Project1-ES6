@@ -1,11 +1,11 @@
 "use strict";
 let imgShark = new Image();
-imgShark.src = "img/shark.jpg";
+imgShark.src = "img/findingnemo5.png";
 
 function Shark (canvas, y) {
-  this.speed =3;
+  this.speed =7;
   this.directionX = -1;
-  this.size = 60;
+  this.size = 90;
   this.canvas = canvas;
   this.ctx = this.canvas.getContext("2d");
   this.x = this.canvas.width+this.size/2;

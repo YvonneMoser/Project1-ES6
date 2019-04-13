@@ -3,7 +3,13 @@ console.log("here")
 
 let imgPlayer = new Image();
 
+//Herzen einfügen?
+let imgHeart = new Image();
+imgHeart.src = "img/heart.png";
 
+//Hintergrund?
+let bg = new Image();
+bg.src = "img/y3EDfQ.jpg";
 
 
 function main(){
@@ -26,13 +32,13 @@ function main(){
     
     <div class="flex-button">
     <div class="flex-img">
-    <img src="img/background.png" width="130">
-    <button class="start-button">Choose Nemo!</button>
+    <img src="img/PinClipart.com_nemo-clip-art_443652.png" width="80">
+    <button class="start-button">Choose Pearl!</button>
     </div>
 
     <div class="flex-img">
-    <img src="img/dory-icon.png" width="100">
-    <button class="dory">Choose Dori</button>
+    <img src="img/dory-icon.png" width="105">
+    <button class="dory">Choose Dory!</button>
     </div>
 
     </section>
@@ -47,7 +53,7 @@ function main(){
   let buttonStart = document.querySelector(".start-button");
   buttonStart.style.borderRadius = "30px";
   buttonStart.addEventListener("click", function(){
-    imgPlayer.src = "img/background.png";
+    imgPlayer.src = "img/PinClipart.com_nemo-clip-art_443652.png";
     buildGameScreen();
   });
 
@@ -66,32 +72,28 @@ buttonDory.addEventListener("click", function(){
   function buildGameScreen(){
     let gameScreen = buildDom(`<section id="game-container">
     <canvas></canvas>
-    <div>
-    <img>
-    <p>Move Dory by using the arrows. Be aware of the sharks and swim to all the clownfish to see if you can find nemo!</p>
+    <div class="gameDescription">
+    <img id="keyboard" src="img/keyboard.png" width="100px" height="100px">
+    <p class="score"></p>
+    <p id="textDescription">Move Dory by using the arrows. Be aware of the sharks and swim to all the clownfish to see if you can find nemo!</p>
     </div>
     <section>`); //wie kann ich bild hier einfügen? mit new Image?
+    
 
     let gameContainer = document.querySelector("#game-container");
 
     const width = gameContainer.offsetWidth;
     const height = gameContainer.offsetHeight;
 
-    console.log(width, height);
 
     const canvasGame= document.querySelector("canvas");
 
     canvasGame.setAttribute("width", width);
     canvasGame.setAttribute("height", height);
-    canvasGame.style.backgroundColor = "aqua"; //background image goes here
-
+    //canvasGame.style.backgroundColor = "aqua"; //background image goes here
+    
 
     const game = new Game(canvasGame);
-
-    game.startLoop();
-    game.setGameOverCallback(buildGameOverScreen);
-    game.setGameWonCallback(buildWonScreen);
-
 
     document.addEventListener("keydown", function(){
       if (event.keyCode ===38){
@@ -116,18 +118,32 @@ buttonDory.addEventListener("click", function(){
         game.player.setDirectionY(0);
       }
     });
-        //eventlistener -keydown - keyup -keyleft -keyright
 
+  
+    
+    game.startLoop();
+    //It has to be called in loop but how can i do this
+    game.setGameOverCallback(buildGameOverScreen);
+    game.setGameWonCallback(buildWonScreen);
+    
+   //function showScore(){
+   // endScore= game.player.score;
+   // return endScore;
+   
   };
   
   
   
   function buildGameOverScreen(){
-   let gameOverScreen = buildDom(`<section>
+   let gameOverScreen = buildDom(`<section id="gameOverScreen">
    <h1>Game Over!</h1>
+   <p class="score"></p>
    <button class="restart-button">Restart</button>
    </section>`);
 
+   //let scori = document.querySelector(".score");
+  //scori.innerHTML= showScore;
+// wie kann ich auf etwas im gamdescreen zugreifen
    let restartButton = document.querySelector(".restart-button");
    restartButton.addEventListener("click", buildGameScreen);
 
@@ -136,7 +152,7 @@ buttonDory.addEventListener("click", function(){
   
   
   function buildWonScreen(){
-    let gameOverScreen = buildDom(`<section>
+    let gameOverScreen = buildDom(`<section id="gameWonScreen">
     <h1>You found Nemo!</h1>
     <button class="restart-button">Restart</button>
     </section>`);
@@ -155,3 +171,8 @@ buildSplashScreen();
 main();
 window.addEventListener("load", main); 
 
+
+//function(){
+ // this.background = this.ctx.drawImage(bg, 0, 0, canvasGame.width, canvasGame.height)
+  //background.x += -(0.5);
+//  background.x %= canvasGame.width;
