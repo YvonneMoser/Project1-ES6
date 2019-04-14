@@ -3,7 +3,7 @@ let imgShark = new Image();
 imgShark.src = "img/findingnemo5.png";
 
 function Shark (canvas, y) {
-  this.speed =7;
+  this.speed =5;
   this.directionX = -1;
   this.size = 90;
   this.canvas = canvas;

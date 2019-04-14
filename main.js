@@ -8,8 +8,6 @@ let imgHeart = new Image();
 imgHeart.src = "img/heart.png";
 
 //Hintergrund?
-let bg = new Image();
-bg.src = "img/y3EDfQ.jpg";
 
 
 function main(){
@@ -33,12 +31,17 @@ function main(){
     <div class="flex-button">
     <div class="flex-img">
     <img src="img/PinClipart.com_nemo-clip-art_443652.png" width="80">
-    <button class="start-button">Choose Pearl!</button>
+    <button class="pearl start-button">Choose Pearl!</button>
+    </div>
+
+    <div class="flex-img">
+    <img src="img/squirt.png" width="85">
+    <button class="racker start-button">Choose Racker!</button>
     </div>
 
     <div class="flex-img">
     <img src="img/dory-icon.png" width="105">
-    <button class="dory">Choose Dory!</button>
+    <button class="dory start-button">Choose Dory!</button>
     </div>
 
     </section>
@@ -50,9 +53,9 @@ function main(){
   splashSc.style.height= "70vh";
 
 
-  let buttonStart = document.querySelector(".start-button");
-  buttonStart.style.borderRadius = "30px";
-  buttonStart.addEventListener("click", function(){
+  let buttonPearl = document.querySelector(".pearl");
+  buttonPearl.style.borderRadius = "30px";
+  buttonPearl.addEventListener("click", function(){
     imgPlayer.src = "img/PinClipart.com_nemo-clip-art_443652.png";
     buildGameScreen();
   });
@@ -64,6 +67,14 @@ buttonDory.addEventListener("click", function(){
   buildGameScreen();
 })
 
+let buttonRacker = document.querySelector(".racker");
+  buttonRacker.style.borderRadius = "30px";
+  buttonRacker.addEventListener("click", function(){
+    imgPlayer.src = "img/squirt.png";
+    buildGameScreen();
+  });
+
+
   };
 
 
@@ -73,7 +84,8 @@ buttonDory.addEventListener("click", function(){
     let gameScreen = buildDom(`<section id="game-container">
     <canvas></canvas>
     <div class="gameDescription">
-    <p class="score"></p>
+    <p class="score scorelevel"></p>
+    <p class="level scorelevel"></p>
     <img id="keyboard" src="img/keyboard.png" width="100px" height="100px">
     <p id="textDescription">Move Dory by using the arrows. Be aware of the sharks and swim to all the clownfish to see if you can find nemo!</p>
     </div>
@@ -140,7 +152,7 @@ buttonDory.addEventListener("click", function(){
   function buildGameOverScreen(){
    let gameOverScreen = buildDom(`<section id="gameOverScreen">
    <div class="sharkflex">
-   <img class="sharkGameOver" src="img/sharkgameover.png" width="300" height="300px">
+   <img src="img/sharkgameover.png" width="300" height="300px">
    </div>
    <h1>Game Over!</h1>
    <p class="score"></p>
@@ -165,12 +177,21 @@ buttonDory.addEventListener("click", function(){
   
   function buildWonScreen(){
     let gameOverScreen = buildDom(`<section id="gameWonScreen">
+    <div class="sharkflex">
+    <img src="img/foundNemo.png" width="500" height="250px">
+    </div>
     <h1>You found Nemo!</h1>
+    <div class="flex-button">
     <button class="restart-button">Restart</button>
+    <button class="newCharacter">Choose another character!</button>
+    </div>
     </section>`);
  
     let restartButton = document.querySelector(".restart-button");
     restartButton.addEventListener("click", buildGameScreen);
+
+    let characterButton = document.querySelector(".newCharacter");
+    characterButton.addEventListener("click", buildSplashScreen);
  
   };
 

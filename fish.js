@@ -5,7 +5,7 @@
 
 
 function Fish (canvas, y, img){
-  this.speed = 7;
+  this.speed = 5;
   this.direction = -1;
   this.size = 60;
   this.canvas = canvas;

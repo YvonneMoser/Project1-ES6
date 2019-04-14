@@ -9,6 +9,7 @@ function Player (canvas){
   this.lives = 3;
   this.size = 60;
   this.score = 0; 
+  this.level = 0;
   this.speed = 6;
   this.directionX = 0;
   this.directionY = 0;
@@ -82,4 +83,5 @@ Player.prototype.setScore = function(){
   console.log(this.score);
   return this.score;
 };
+
 

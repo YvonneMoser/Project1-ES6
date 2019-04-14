@@ -20,7 +20,9 @@ body {
   line-height: 147%;
 }
 
-h1 {}
+h1 {
+  color: rgb(255, 110, 0);
+}
 
 h2 {}
 
@@ -174,12 +176,13 @@ h1 {
   width: 20vh;
   border-radius: 30px;
   height: 70px;
+  width: 200px;
   align-self: center;
 }
 
 canvas{
   background-image: url("img/y3EDfQ.jpg");
-  background-size: 130%;
+  background-size: 120%;
   border: 10px solid rgb(255, 110, 0);
 }
 
@@ -212,4 +215,8 @@ img#keyboard{
 .sharkflex{
   display:flex;
   justify-content: center;
+}
+
+.scorelevel {
+  color: rgb(255, 110, 0);
 }

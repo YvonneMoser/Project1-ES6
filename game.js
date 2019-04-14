@@ -2,7 +2,6 @@
 
 
 
-
 //creates a Game constructor
 function Game (canvas){
   this.player = null;
@@ -54,11 +53,45 @@ Game.prototype.startLoop = function (){
     this.clearCanvas();
     this.updateCanvas();
     this.drawCanvas();
+
     let endScore= document.querySelector(".score");
     endScore.innerHTML = `Score: ${this.player.score}`;
     endScore.style.fontSize = "x-large"; 
     endScore.style.fontWeight ="bold";
+
+  
+
     this.checkCollisions();
+
+  
+
+    if (this.player.score >=1000){
+      this.sharks.forEach(function(element){
+        element.speed =7;
+      });
+    if (this.player.score >= 1000){
+        this.player.level = 1;
+      }
+    }
+
+    if (this.player.score >=2000){
+      this.fishes.forEach(function(element){
+        element.speed =7;
+      });
+      this.sharks.forEach(function(element){
+        element.speed =10;
+      });
+    if (this.player.score >= 2000){
+      this.player.level=2;
+    }
+    }
+
+    let level= document.querySelector(".level");
+    level.innerHTML = `Level: ${this.player.level}`;
+    level.style.fontSize = "x-large"; 
+    level.style.fontWeight ="bold";
+    level.style.margin ="0 10px 0 25px";
+
     if (this.gameOver === false && this.gameWon === false){
       window.requestAnimationFrame(loop);
     }
@@ -81,6 +114,8 @@ Game.prototype.clearCanvas = function(){
 // draws the canvas (integrates player, sharks and fishes)
 Game.prototype.drawCanvas = function(){
   
+
+  //wie hier background  der sich bewegt einfügen????
   this.player.draw1();
   this.player.draw3();
   this.sharks.forEach(function(shark){
@@ -123,7 +158,7 @@ Game.prototype.checkCollisions = function(){
   if(collidingFish){
     this.fishes.splice(index, 1);
     this.player.setScore();
-    if (this.player.score > 5000){
+    if (this.player.score > 500){
       this.gameWon = true;
       this.clearCanvas();//wie kann ich hier canvas cleanen
       this.onGameWon();
@@ -150,3 +185,4 @@ Game.prototype.setGameOverCallback = function (callback){
 Game.prototype.setGameWonCallback = function (callback){
   this.onGameWon = callback;
 }
+
