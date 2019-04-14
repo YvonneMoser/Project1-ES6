@@ -73,27 +73,30 @@ buttonDory.addEventListener("click", function(){
     let gameScreen = buildDom(`<section id="game-container">
     <canvas></canvas>
     <div class="gameDescription">
-    <img id="keyboard" src="img/keyboard.png" width="100px" height="100px">
     <p class="score"></p>
+    <img id="keyboard" src="img/keyboard.png" width="100px" height="100px">
     <p id="textDescription">Move Dory by using the arrows. Be aware of the sharks and swim to all the clownfish to see if you can find nemo!</p>
     </div>
-    <section>`); //wie kann ich bild hier einfügen? mit new Image?
+    </section>`); //wie kann ich bild hier einfügen? mit new Image?
     
 
     let gameContainer = document.querySelector("#game-container");
 
-    const width = gameContainer.offsetWidth;
-    const height = gameContainer.offsetHeight;
+    let width = gameContainer.offsetWidth;
+    let height = gameContainer.offsetHeight;
 
 
-    const canvasGame= document.querySelector("canvas");
+    let canvasGame= document.querySelector("canvas");
 
     canvasGame.setAttribute("width", width);
     canvasGame.setAttribute("height", height);
-    //canvasGame.style.backgroundColor = "aqua"; //background image goes here
+
+    let gameText= document.querySelector(".gameDescription");
+    gameText.setAttribute("width", width);
+    gameText.setAttribute("height", height);
     
 
-    const game = new Game(canvasGame);
+    let game = new Game(canvasGame);
 
     document.addEventListener("keydown", function(){
       if (event.keyCode ===38){
@@ -136,9 +139,15 @@ buttonDory.addEventListener("click", function(){
   
   function buildGameOverScreen(){
    let gameOverScreen = buildDom(`<section id="gameOverScreen">
+   <div class="sharkflex">
+   <img class="sharkGameOver" src="img/sharkgameover.png" width="300" height="300px">
+   </div>
    <h1>Game Over!</h1>
    <p class="score"></p>
+   <div class="flex-button">
    <button class="restart-button">Restart</button>
+   <button class="newCharacter">Choose another character!</button>
+   </div>
    </section>`);
 
    //let scori = document.querySelector(".score");
@@ -146,6 +155,9 @@ buttonDory.addEventListener("click", function(){
 // wie kann ich auf etwas im gamdescreen zugreifen
    let restartButton = document.querySelector(".restart-button");
    restartButton.addEventListener("click", buildGameScreen);
+
+   let characterButton = document.querySelector(".newCharacter");
+   characterButton.addEventListener("click", buildSplashScreen);
 
   };
   

@@ -55,7 +55,9 @@ Game.prototype.startLoop = function (){
     this.updateCanvas();
     this.drawCanvas();
     let endScore= document.querySelector(".score");
-    endScore.innerHTML = `Score: ${this.player.score}`  
+    endScore.innerHTML = `Score: ${this.player.score}`;
+    endScore.style.fontSize = "x-large"; 
+    endScore.style.fontWeight ="bold";
     this.checkCollisions();
     if (this.gameOver === false && this.gameWon === false){
       window.requestAnimationFrame(loop);

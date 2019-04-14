@@ -74,7 +74,7 @@ p {
 /* ---- section ---- */
 
 #game-container {
-  width:100%;
+  width:1132px; /*wie kann ich es ohne width schaffen dass unterer description die gleiche größe hat*/
   margin-top: 10vh;
   height: 70vh;
   
@@ -82,8 +82,9 @@ p {
 
 body {display: flex;
 justify-content: center;
-background-image: url("img/background.png");
-background-size: 150px;
+background-image: url("img/y3EDfQ.jpg");
+background-size: 100%;
+background-repeat: repeat; /*wie mache ich es dass es sich an Bildschirmgröße anpasst?*/
 align-items: center;
 }
 
@@ -93,7 +94,7 @@ align-items: center;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  border: 6px solid rgb(255, 110, 0);
+  border: 10px solid rgb(255, 110, 0);
   margin-top: 15vh;
   color: rgb(255, 110, 0);;
 }
@@ -146,7 +147,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  border: 6px solid rgb(255, 110, 0);
+  border: 10px solid rgb(255, 110, 0);
   margin-top: 15vh;
   background-color: white;
   width: 80vh;
@@ -158,27 +159,28 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  border: 6px solid rgb(255, 110, 0);
+  border: 10px solid rgb(255, 110, 0);
   margin-top: 15vh;
   background-color: white;
   width: 80vh;
   height: 70vh;
 }
 
-.restart-button{
+.restart-button, .newCharacter{
   font-size: 20px;
   border: 2px solid white;
   background-color: rgb(255, 110, 0);
   color: white;
   width: 20vh;
   border-radius: 30px;
+  height: 70px;
   align-self: center;
 }
 
 canvas{
   background-image: url("img/y3EDfQ.jpg");
   background-size: 130%;
-  border: 6px solid rgb(255, 110, 0);
+  border: 10px solid rgb(255, 110, 0);
 }
 
 .gameDescription{
@@ -186,19 +188,28 @@ canvas{
   flex-direction: row;
   justify-content: space-between;
   background-color: white;
-  border: 6px solid rgb(255, 110, 0);
+  border: 10px solid rgb(255, 110, 0);
   align-items: center;
 }
 
 img#keyboard{
-  margin: 0 20px;
+  margin: 0 30px;
 }
 
 
 
 #textDescription{
-  padding-left: 50px;
+  padding-left: 30px;
   padding-right: 50px;
   font-size: 18px;
   color: rgb(255, 110, 0);
+}
+
+.score {
+  padding-left: 15px;
+}
+
+.sharkflex{
+  display:flex;
+  justify-content: center;
 }
