@@ -1,6 +1,7 @@
 console.log("here")
 "use strict";
 
+
 let imgPlayer = new Image();
 
 //Herzen einfügen?
@@ -156,16 +157,21 @@ let buttonRacker = document.querySelector(".racker");
    <img src="img/sharkgameover.png" width="300" height="300px">
    </div>
    <h1>Game Over!</h1>
-   <p class="score"></p>
+   <p class="endscore"></p>
    <div class="flex-button">
    <button class="restart-button">Restart</button>
    <button class="newCharacter">Choose another character!</button>
    </div>
    </section>`);
 
-   /*let scori = document.querySelector(".score");
-   scori.innerHTML= this.player.endScore;*/
-// wie kann ich auf etwas im gamdescreen zugreifen
+   let endscore = document.querySelector(".endscore");
+   endscore.innerHTML= `Score: ${points}`;
+   endscore.style.color = "rgb(255, 110, 0)";
+   endscore.style.fontSize = "30px";
+   endscore.style.fontWeight = "bold";
+   endscore.style.textAlign = "center";
+   endscore.style.marginBottom = "30px"
+
 
    let restartButton = document.querySelector(".restart-button");
    restartButton.addEventListener("click", buildGameScreen);

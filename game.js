@@ -1,5 +1,6 @@
 "use strict";
 
+let points = 0;
 
 
 //creates a Game constructor
@@ -66,7 +67,7 @@ Game.prototype.startLoop = function (){
     this.checkInCanvas();
 
   
-
+//Different Levels
     if (this.player.score >=1000){
       this.sharks.forEach(function(element){
         element.speed =7;
@@ -88,20 +89,16 @@ Game.prototype.startLoop = function (){
     }
     }
 
-    // let level= document.querySelector(".level");
-    // level.innerHTML = `Level: ${this.player.level}`;
-    // level.style.fontSize = "x-large"; 
-    // level.style.fontWeight ="bold";
-    // level.style.margin ="0 10px 0 25px";
+    let level= document.querySelector(".level");
+    level.innerHTML = `Level: ${this.player.level}`;
+    level.style.fontSize = "x-large"; 
+    level.style.fontWeight ="bold";
+    level.style.margin ="0 10px 0 25px";
 
     if (this.gameOver === false && this.gameWon === false){
       window.requestAnimationFrame(loop);
     }
-  /*else {
-    let endScore = this.player.score;
-  return endscore;
-  }*/
-    
+ 
   }
 
 
@@ -152,8 +149,10 @@ Game.prototype.checkCollisions = function(){
       this.sharks.splice(index,1);
       this.player.setLives();
       if (this.player.lives === 0){
+        points = this.player.score;
         this.gameOver = true;
         this.onGameOver();
+        return points;
       }
     }
   });
