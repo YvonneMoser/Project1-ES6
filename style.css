@@ -76,7 +76,7 @@ p {
 /* ---- section ---- */
 
 #game-container {
-  width:1132px; /*wie kann ich es ohne width schaffen dass unterer description die gleiche größe hat*/
+  width:70vw; /*wie kann ich es ohne width schaffen dass unterer description die gleiche größe hat*/
   margin-top: 10vh;
   height: 70vh;
   
@@ -185,6 +185,7 @@ canvas{
   background-image: url("img/y3EDfQ.jpg");
   background-size: 120%;
   border: 10px solid rgb(255, 110, 0);
+  width: 70vw;
 }
 
 .gameDescription{

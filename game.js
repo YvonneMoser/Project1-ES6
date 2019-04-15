@@ -23,7 +23,7 @@ Game.prototype.startLoop = function (){
 
   let loop = () => {
 //Push randum number of sharks to the sharks array
-    if (Math.random() > 0.99999){ 
+    if (Math.random() > 0.97){ 
       let randomNumber = (Math.random()*this.canvas.height-30)+30;
       this.sharks.push(new Shark(this.canvas, randomNumber));
     }
@@ -163,7 +163,7 @@ Game.prototype.checkCollisions = function(){
   if(collidingFish){
     this.fishes.splice(index, 1);
     this.player.setScore();
-    if (this.player.score > 300000){
+    if (this.player.score > 1000){
       this.gameWon = true;
       this.clearCanvas();//wie kann ich hier canvas cleanen
       this.onGameWon();
