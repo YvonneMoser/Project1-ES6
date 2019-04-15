@@ -109,7 +109,8 @@ h1 {
 
 .starttext{
   text-align: center;
-  padding: 30px;
+  padding: 20px;
+  margin-top: 10px;
   font-size: 20px;
 }
 
@@ -220,3 +221,4 @@ img#keyboard{
 .scorelevel {
   color: rgb(255, 110, 0);
 }
+

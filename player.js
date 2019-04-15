@@ -74,6 +74,8 @@ Player.prototype.checkFish = function(fish){
   return collisionRight && collisionLeft && collisionTop && collisionBottom;
 };
 
+
+
 Player.prototype.setLives = function(){
   this.lives--;
 };

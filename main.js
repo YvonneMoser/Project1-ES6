@@ -31,18 +31,20 @@ function main(){
     <div class="flex-button">
     <div class="flex-img">
     <img src="img/PinClipart.com_nemo-clip-art_443652.png" width="80">
-    <button class="pearl start-button">Choose Pearl!</button>
+    <button class="pearl start-button">Pearl!</button>
     </div>
 
     <div class="flex-img">
     <img src="img/squirt.png" width="85">
-    <button class="racker start-button">Choose Racker!</button>
+    <button class="racker start-button">Racker!</button>
     </div>
 
     <div class="flex-img">
     <img src="img/dory-icon.png" width="105">
-    <button class="dory start-button">Choose Dory!</button>
+    <button class="dory start-button">Dory!</button>
     </div>
+    </div>
+    <p class="starttext">Move your character by using the arrow keys. Avoid the sharks and swim to all the fishes to see if you can find nemo!</p>
 
     </section>
     </section>`);
@@ -86,8 +88,8 @@ let buttonRacker = document.querySelector(".racker");
     <div class="gameDescription">
     <p class="score scorelevel"></p>
     <p class="level scorelevel"></p>
-    <img id="keyboard" src="img/keyboard.png" width="100px" height="100px">
-    <p id="textDescription">Move Dory by using the arrows. Be aware of the sharks and swim to all the clownfish to see if you can find nemo!</p>
+    <img id="keyboard" src="img/keyboard (2).png" width="100px" height="100px">
+    <p id="textDescription">Move your character by using the arrow keys. Avoid the sharks and swim to all the fishes to see if you can find nemo!</p>
     </div>
     </section>`); //wie kann ich bild hier einfügen? mit new Image?
     
@@ -114,13 +116,13 @@ let buttonRacker = document.querySelector(".racker");
       if (event.keyCode ===38){
         game.player.setDirectionY(-1);
       }
-      else if (event.keyCode === 40){
+      if (event.keyCode === 40){
         game.player.setDirectionY(1);
       }
-      else if (event.keyCode === 37){
+      if (event.keyCode === 37){
         game.player.setDirectionX(-1);
       }
-      else if (event.keyCode === 39){
+      if (event.keyCode === 39 ){
         game.player.setDirectionX(1);
       }
     });
@@ -137,13 +139,12 @@ let buttonRacker = document.querySelector(".racker");
   
     
     game.startLoop();
-    //It has to be called in loop but how can i do this
     game.setGameOverCallback(buildGameOverScreen);
     game.setGameWonCallback(buildWonScreen);
-    
+  
    //function showScore(){
    // endScore= game.player.score;
-   // return endScore;
+   //return this.player.endScore;
    
   };
   
@@ -162,9 +163,10 @@ let buttonRacker = document.querySelector(".racker");
    </div>
    </section>`);
 
-   //let scori = document.querySelector(".score");
-  //scori.innerHTML= showScore;
+   /*let scori = document.querySelector(".score");
+   scori.innerHTML= this.player.endScore;*/
 // wie kann ich auf etwas im gamdescreen zugreifen
+
    let restartButton = document.querySelector(".restart-button");
    restartButton.addEventListener("click", buildGameScreen);
 
@@ -178,7 +180,7 @@ let buttonRacker = document.querySelector(".racker");
   function buildWonScreen(){
     let gameOverScreen = buildDom(`<section id="gameWonScreen">
     <div class="sharkflex">
-    <img src="img/foundNemo.png" width="500" height="250px">
+    <img src="img/foundNemo.png" width="80%" height="90%">
     </div>
     <h1>You found Nemo!</h1>
     <div class="flex-button">

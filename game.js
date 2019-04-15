@@ -22,13 +22,13 @@ Game.prototype.startLoop = function (){
 
 
   let loop = () => {
-//To create a random number of sharks in the sharks array
-    if (Math.random() > 0.97){ 
+//Push randum number of sharks to the sharks array
+    if (Math.random() > 0.99999){ 
       let randomNumber = (Math.random()*this.canvas.height-30)+30;
       this.sharks.push(new Shark(this.canvas, randomNumber));
     }
 
-//new condition, because there should be less fishes than sharks in the game 
+//Puts different fishes to fishes array
     if (Math.random() > 0.995){ 
       let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
       this.fishes.push(new Fish(this.canvas, randomNumber2, "img/background.png"));
@@ -63,6 +63,8 @@ Game.prototype.startLoop = function (){
 
     this.checkCollisions();
 
+    this.checkInCanvas();
+
   
 
     if (this.player.score >=1000){
@@ -86,17 +88,20 @@ Game.prototype.startLoop = function (){
     }
     }
 
-    let level= document.querySelector(".level");
-    level.innerHTML = `Level: ${this.player.level}`;
-    level.style.fontSize = "x-large"; 
-    level.style.fontWeight ="bold";
-    level.style.margin ="0 10px 0 25px";
+    // let level= document.querySelector(".level");
+    // level.innerHTML = `Level: ${this.player.level}`;
+    // level.style.fontSize = "x-large"; 
+    // level.style.fontWeight ="bold";
+    // level.style.margin ="0 10px 0 25px";
 
     if (this.gameOver === false && this.gameWon === false){
       window.requestAnimationFrame(loop);
     }
-
-
+  /*else {
+    let endScore = this.player.score;
+  return endscore;
+  }*/
+    
   }
 
 
@@ -158,21 +163,46 @@ Game.prototype.checkCollisions = function(){
   if(collidingFish){
     this.fishes.splice(index, 1);
     this.player.setScore();
-    if (this.player.score > 500){
+    if (this.player.score > 300000){
       this.gameWon = true;
       this.clearCanvas();//wie kann ich hier canvas cleanen
       this.onGameWon();
     }
   }
   }); 
+
+  
+    //let collisionLeft = this.x - this.size/2 <= 0;
+    //let collisionRight = this.x + this.size/2 > this.canvasGame.width;
+    //let collisionBottom = this.y + this.size/2 > this.canvasGame.height;
+    //let collisionTop = this.y -this.size/2 <= 0;
+  
+    //return collisionBottom && collisionLeft && collisionTop && collisionRight;
+ // }
+
+
 };
 
 
 //wie checken ob es im bildschirm ist
 Game.prototype.checkInCanvas = function(){
-  if (this.player.x >= gameContainer.canvasGame.width - this.player.width) {
-    this.player.x = gameContainer.canvasGame.width - this.player.width;
+  if (this.player.x >= this.canvas.width - this.player.size/2) {
+    this.player.x = this.canvas.width -this.player.size/2;
+    this.player.setDirectionX(0);
 }
+if (this.player.x-this.player.size/2 <= 0) {
+  this.player.x = 0+this.player.size/2
+  this.player.setDirectionX(0);
+}
+if (this.player.y >= this.canvas.height - this.player.size/2) {
+  this.player.y = this.canvas.height -this.player.size/2;
+  this.player.setDirectionY(0);
+}
+if (this.player.y-this.player.size/2 <= 0) {
+this.player.y = 0+this.player.size/2
+this.player.setDirectionY(0);
+}
+
  };
 
 
