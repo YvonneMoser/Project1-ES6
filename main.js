@@ -89,6 +89,8 @@ let buttonRacker = document.querySelector(".racker");
     <audio id="fishSound" src="vid/smw_coin.wav"></audio>
     <audio id="gridSound" src="vid/smw_stomp_koopa_kid.wav"></audio>
     <audio id="levelSound" src="vid/smw_save_menu.wav"></audio>
+    <audio id="startSound" src="vid/swimming Kopie.mp3"></audio>
+
 
 
     <div class="bla">
@@ -109,7 +111,9 @@ let buttonRacker = document.querySelector(".racker");
    
     let gameContainer = document.querySelector("#game-container");
     let gameText= document.querySelector(".gameDescription");
+    let startSound = document.getElementById("startSound");
 
+    startSound.play();
 
     let width = gameContainer.offsetWidth;
     let height = gameContainer.offsetHeight;
@@ -174,6 +178,8 @@ let buttonRacker = document.querySelector(".racker");
   
   function buildGameOverScreen(){
    let gameOverScreen = buildDom(`
+   <audio id="loseSound" src="vid/You-lose-sound-effect.mp3"></audio>
+
    <section id="gameOverScreen">
    <div class="sharkflex">
    <img src="img/sharkgameover.png" width="300" height="300px">
@@ -186,6 +192,7 @@ let buttonRacker = document.querySelector(".racker");
    </div>
    </section>`);
 
+   let loseSound = document.getElementById("loseSound");
 
 
    let endscore = document.querySelector(".endscore");
@@ -194,7 +201,9 @@ let buttonRacker = document.querySelector(".racker");
    endscore.style.fontSize = "30px";
    endscore.style.fontWeight = "bold";
    endscore.style.textAlign = "center";
-   endscore.style.marginBottom = "30px"
+   endscore.style.marginBottom = "30px";
+
+   loseSound.play();
 
    let restartButton = document.querySelector(".restart-button");
    restartButton.addEventListener("click", buildGameScreen);
