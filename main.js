@@ -45,7 +45,7 @@ function main(){
     <button class="dory start-button">Dory!</button>
     </div>
     </div>
-    <p class="starttext">Move your character by using the arrow keys. Avoid the sharks and swim to all the fishes to see if you can find nemo!</p>
+    <p class="starttext">Move your character by using the arrow keys. Avoid the sharks and swim to all the fish to see if you can find nemo!</p>
 
     </section>
     </section>`);
@@ -84,29 +84,50 @@ let buttonRacker = document.querySelector(".racker");
 
 
   function buildGameScreen(){
-    let gameScreen = buildDom(`<section id="game-container">
-    <canvas></canvas>
-    <div class="gameDescription">
-    <p class="score scorelevel"></p>
-    <p class="level scorelevel"></p>
-    <img id="keyboard" src="img/keyboard (2).png" width="100px" height="100px">
-    <p id="textDescription">Move your character by using the arrow keys. Avoid the sharks and swim to all the fishes to see if you can find nemo!</p>
-    </div>
-    </section>`); //wie kann ich bild hier einfügen? mit new Image?
-    
+    let gameScreen = buildDom(`
+    <audio id="bite" src="vid/Apple_Bite-Simon_Craggs-1683647397.mp3"></audio>
+    <audio id="fishSound" src="vid/smw_coin.wav"></audio>
+    <audio id="gridSound" src="vid/smw_stomp_koopa_kid.wav"></audio>
+    <audio id="levelSound" src="vid/smw_save_menu.wav"></audio>
 
+
+    <div class="bla">
+      <div id="game-border">
+        <section id="game-container">
+          <canvas></canvas>
+        </section>
+      </div>
+      <div class="gameDescription">
+        <p class="score scorelevel"></p>
+        <p class="level scorelevel"></p>
+        <img id="keyboard" src="img/keyboard (2).png" width="100px" height="100px">
+        <p id="textDescription">Move your character by using the arrow keys. Avoid the sharks and swim to all the fish to see if you can find nemo!</p>
+      </div>
+    </div>
+    `); //wie kann ich bild hier einfügen? mit new Image?
+    
+   
     let gameContainer = document.querySelector("#game-container");
+    let gameText= document.querySelector(".gameDescription");
+
 
     let width = gameContainer.offsetWidth;
     let height = gameContainer.offsetHeight;
-
+    window.addEventListener("resize", ()=> {
+      width = gameContainer.offsetWidth;
+     height = gameContainer.offsetHeight;
+    canvasGame.setAttribute("width", width);
+    canvasGame.setAttribute("height", height);
+    gameText.setAttribute("width", width);
+    gameText.setAttribute("height", height);
+    })
 
     let canvasGame= document.querySelector("canvas");
 
     canvasGame.setAttribute("width", width);
     canvasGame.setAttribute("height", height);
+    
 
-    let gameText= document.querySelector(".gameDescription");
     gameText.setAttribute("width", width);
     gameText.setAttribute("height", height);
     
@@ -152,7 +173,8 @@ let buttonRacker = document.querySelector(".racker");
   
   
   function buildGameOverScreen(){
-   let gameOverScreen = buildDom(`<section id="gameOverScreen">
+   let gameOverScreen = buildDom(`
+   <section id="gameOverScreen">
    <div class="sharkflex">
    <img src="img/sharkgameover.png" width="300" height="300px">
    </div>
@@ -164,6 +186,8 @@ let buttonRacker = document.querySelector(".racker");
    </div>
    </section>`);
 
+
+
    let endscore = document.querySelector(".endscore");
    endscore.innerHTML= `Score: ${points}`;
    endscore.style.color = "rgb(255, 110, 0)";
@@ -171,7 +195,6 @@ let buttonRacker = document.querySelector(".racker");
    endscore.style.fontWeight = "bold";
    endscore.style.textAlign = "center";
    endscore.style.marginBottom = "30px"
-
 
    let restartButton = document.querySelector(".restart-button");
    restartButton.addEventListener("click", buildGameScreen);
@@ -184,7 +207,9 @@ let buttonRacker = document.querySelector(".racker");
   
   
   function buildWonScreen(){
-    let gameOverScreen = buildDom(`<section id="gameWonScreen">
+    let gameOverScreen = buildDom(`
+    <audio id="wonSound" src="vid/Ta Da-SoundBible.com-1884170640.wav"></audio>
+    <section id="gameWonScreen">
     <div class="sharkflex">
     <img src="img/foundNemo.png" width="80%" height="90%">
     </div>
@@ -196,6 +221,9 @@ let buttonRacker = document.querySelector(".racker");
     </div>
     </section>`);
  
+    let wonSound = document.getElementById("wonSound");
+
+
     let endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
     endscore.style.color = "rgb(255, 110, 0)";
@@ -203,6 +231,9 @@ let buttonRacker = document.querySelector(".racker");
     endscore.style.fontWeight = "bold";
     endscore.style.textAlign = "center";
     endscore.style.marginBottom = "30px"
+
+    wonSound.play();
+
 
     let restartButton = document.querySelector(".restart-button");
     restartButton.addEventListener("click", buildGameScreen);

@@ -75,11 +75,19 @@ p {
 
 /* ---- section ---- */
 
+.bla{
+  width:70vw;
+}
+
+
 #game-container {
-  width:70vw; /*wie kann ich es ohne width schaffen dass unterer description die gleiche größe hat*/
+   /*wie kann ich es ohne width schaffen dass unterer description die gleiche größe hat*/
   margin-top: 10vh;
-  height: 70vh;
-  
+  height: 70vh; 
+  border-top: 10px solid rgb(255, 110, 0);
+  border-left: 10px solid rgb(255, 110, 0);
+  border-right: 10px solid rgb(255, 110, 0);
+  overflow: hidden;
 }
 
 body {display: flex;
@@ -184,8 +192,7 @@ h1 {
 canvas{
   background-image: url("img/y3EDfQ.jpg");
   background-size: 120%;
-  border: 10px solid rgb(255, 110, 0);
-  width: 70vw;
+  box-sizing: border-box;
 }
 
 .gameDescription{

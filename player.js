@@ -9,7 +9,7 @@ function Player (canvas){
   this.lives = 3;
   this.size = 60;
   this.score = 0; 
-  this.level = 0;
+  this.level = 1;
   this.speed = 6;
   this.directionX = 0;
   this.directionY = 0;
