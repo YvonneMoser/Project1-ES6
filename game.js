@@ -23,13 +23,13 @@ Game.prototype.startLoop = function (){
 
 
   let loop = () => {
-//Push randum number of sharks to the sharks array
+//Push random number of sharks to the sharks array
     if (Math.random() > 0.97){ 
       let randomNumber = (Math.random()*this.canvas.height-30)+30;
       this.sharks.push(new Shark(this.canvas, randomNumber));
     }
 
-//Puts different fishes to fishes array
+//Pushs different fishes to fishes array
     if (Math.random() > 0.995){ 
       let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
       this.fishes.push(new Fish(this.canvas, randomNumber2, "img/background.png"));
@@ -67,7 +67,6 @@ Game.prototype.startLoop = function (){
     this.checkInCanvas();
 
   
-//Different Levels
     this.setLevel();
     if (this.gameOver === false && this.gameWon === false){
       window.requestAnimationFrame(loop);
@@ -90,7 +89,6 @@ Game.prototype.clearCanvas = function(){
 Game.prototype.drawCanvas = function(){
   
 
-  //wie hier background  der sich bewegt einfügen????
   this.player.draw1();
   this.player.draw3();
   this.sharks.forEach(function(shark){
@@ -172,43 +170,42 @@ Game.prototype.checkCollisions = function(){
     }, 800);
 };*/
 
-//wie checken ob es im bildschirm ist
+//Check that player is inside the canvas
 Game.prototype.checkInCanvas = function(){
   if (this.player.x >= this.canvas.width - this.player.size) {
     gridSound.play();
     this.player.x = this.canvas.width -this.player.size;
     this.player.setDirectionX(0);
 }
-if (this.player.x-this.player.size/2 <= 0) {
-  gridSound.play();
-  this.player.x = 0+this.player.size/2
-  this.player.setDirectionX(0);
-}
-if (this.player.y >= this.canvas.height - this.player.size/1.5) {
-  gridSound.play();
-  this.player.y = this.canvas.height -this.player.size/1.5;
-  this.player.setDirectionY(0);
-}
-if (this.player.y-this.player.size/2 <= 0) {
-  gridSound.play();
-this.player.y = 0+this.player.size/2
-this.player.setDirectionY(0);
-}
-
- };
-
+  if (this.player.x-this.player.size/2 <= 0) {
+    gridSound.play();
+    this.player.x = 0+this.player.size/2
+    this.player.setDirectionX(0);
+  }
+  if (this.player.y >= this.canvas.height - this.player.size/1.5) {
+    gridSound.play();
+    this.player.y = this.canvas.height -this.player.size/1.5;
+    this.player.setDirectionY(0);
+  }
+  if (this.player.y-this.player.size/2 <= 0) {
+    gridSound.play();
+    this.player.y = 0+this.player.size/2
+    this.player.setDirectionY(0);
+  }
+  };
 
 
+//Callback to main.js
 Game.prototype.setGameOverCallback = function (callback){
   this.onGameOver = callback;
 }
 
-
+//Callback to main.js
 Game.prototype.setGameWonCallback = function (callback){
   this.onGameWon = callback;
 }
 
-//Different Levels
+//Set different levels
 Game.prototype.setLevel = function (){
   if (this.player.score >=1000){
     this.sharks.forEach(function(element){
@@ -259,4 +256,4 @@ Game.prototype.setLevel = function (){
   level.style.fontSize = "x-large"; 
   level.style.fontWeight ="bold";
   level.style.margin ="0 10px 0 25px";
-}
+};
