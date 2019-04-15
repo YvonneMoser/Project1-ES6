@@ -163,6 +163,7 @@ Game.prototype.checkCollisions = function(){
     this.fishes.splice(index, 1);
     this.player.setScore();
     if (this.player.score > 1000){
+      points = this.player.score;
       this.gameWon = true;
       this.clearCanvas();//wie kann ich hier canvas cleanen
       this.onGameWon();
