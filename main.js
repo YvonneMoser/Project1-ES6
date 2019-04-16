@@ -88,7 +88,7 @@ function main(){
     <audio id="fishSound" src="vid/smw_coin.wav"></audio>
     <audio id="gridSound" src="vid/smw_stomp_koopa_kid.wav"></audio>
     <audio id="levelSound" src="vid/smw_save_menu.wav"></audio>
-    <audio id="startSound" src="vid/swimming Kopie.mp3"></audio>
+    <audio id="startSound" src="vid/Bubbling-SoundBible.com-1684132696 (1).wav"></audio>
 
 
 

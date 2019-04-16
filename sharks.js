@@ -2,9 +2,11 @@
 let imgShark = new Image();
 imgShark.src = "img/findingnemo5.png";
 
-function Shark (canvas, y) {
+function Shark (canvas, y, directionY) {
   this.speed =5;
+  this.speedY = 2;
   this.directionX = -1;
+  this.directionY = directionY
   this.size = 90;
   this.canvas = canvas;
   this.ctx = this.canvas.getContext("2d");
@@ -18,4 +20,5 @@ Shark.prototype.draw = function(){
 
 Shark.prototype.update = function(){
   this.x = this.x + this.directionX*this.speed;
+  this.y = this.y + this.directionY*this.speedY;
 };

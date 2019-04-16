@@ -4,11 +4,11 @@
 
 
 
-function Fish (canvas, y, img){
+function Fish (canvas, y, img, directionY){
   this.speed = 5;
   this.speedY = 0.5;
   this.direction = -1;
-  this.directionY = 1;
+  this.directionY = directionY;
   this.size = 60;
   this.canvas = canvas;
   this.image = img;

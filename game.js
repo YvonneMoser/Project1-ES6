@@ -24,30 +24,36 @@ Game.prototype.startLoop = function (){
 
   let loop = () => {
 //Push random number of sharks to the sharks array
-    if (Math.random() > 0.98){ 
+//Give sharks a random direction
+    if (Math.random() > 0.98){
       let randomNumber = (Math.random()*this.canvas.height-30)+30;
-      this.sharks.push(new Shark(this.canvas, randomNumber));
+      let randomDirection = Math.random()*2-1;
+      this.sharks.push(new Shark(this.canvas, randomNumber, randomDirection));
     }
 
 //Pushs different fishes to fishes array
     if (Math.random() > 0.995){ 
       let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
-      this.fishes.push(new Fish(this.canvas, randomNumber2, "img/background.png"));
+      let randomDirection = Math.floor(Math.random()*2);
+      this.fishes.push(new Fish(this.canvas, randomNumber2, "img/background.png", randomDirection));
     }
 
     if (Math.random() > 0.995){ 
       let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
-      this.fishes.push(new Fish(this.canvas, randomNumber2, "img/22294-tropical-fish-icon.png"));
+      let randomDirection = Math.floor(Math.random()*2);
+      this.fishes.push(new Fish(this.canvas, randomNumber2, "img/22294-tropical-fish-icon.png", randomDirection));
     }
 
     if (Math.random() > 0.995){ 
       let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
-      this.fishes.push(new Fish(this.canvas, randomNumber2, "img/starfish.png"));
+      let randomDirection = Math.floor(Math.random()*2);
+      this.fishes.push(new Fish(this.canvas, randomNumber2, "img/starfish.png", randomDirection));
     }
 
     if (Math.random() > 0.995){ 
       let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
-      this.fishes.push(new Fish(this.canvas, randomNumber2, "img/turtle.png"));
+      let randomDirection = Math.floor(Math.random()*2);
+      this.fishes.push(new Fish(this.canvas, randomNumber2, "img/turtle.png", randomDirection));
     }
    
    
@@ -139,7 +145,7 @@ Game.prototype.checkCollisions = function(){
     this.fishes.splice(index, 1);
     this.player.setScore();
     fishSound.play();
-    if (this.player.score > 2000){      
+    if (this.player.score > 5000){      
       points = this.player.score;
       this.gameWon = true;
       this.clearCanvas();//wie kann ich hier canvas cleanen
