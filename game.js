@@ -3,6 +3,7 @@
 let points = 0;
 
 
+
 //creates a Game constructor
 function Game (canvas){
   this.player = null;
@@ -20,6 +21,7 @@ function Game (canvas){
 Game.prototype.startLoop = function (){
 
   this.player = new Player(this.canvas);
+  this.levelSound = document.getElementById("levelSound"); 
 
 
   let loop = () => {
@@ -32,6 +34,7 @@ Game.prototype.startLoop = function (){
     }
 
 //Pushs different fishes to fishes array
+//Give fish a random direction
     if (Math.random() > 0.995){ 
       let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
       let randomDirection = Math.floor(Math.random()*2);
@@ -122,7 +125,6 @@ Game.prototype.checkCollisions = function(){
   let sharkSound = document.getElementById("bite"); 
   let fishSound = document.getElementById("fishSound"); 
   let gridSound = document.getElementById("gridSound"); 
-  let levelSound = document.getElementById("levelSound"); 
 
   this.sharks.forEach((shark, index) => {
     let collidingShark = this.player.checkCollisionShark(shark);
@@ -145,25 +147,14 @@ Game.prototype.checkCollisions = function(){
     this.fishes.splice(index, 1);
     this.player.setScore();
     fishSound.play();
-    if (this.player.score > 5000){      
+    if (this.player.score > 5900){      
       points = this.player.score;
       this.gameWon = true;
-      this.clearCanvas();//wie kann ich hier canvas cleanen
+      this.clearCanvas();
       this.onGameWon();
     }
   }
   }); 
-
-  
-    //let collisionLeft = this.x - this.size/2 <= 0;
-    //let collisionRight = this.x + this.size/2 > this.canvasGame.width;
-    //let collisionBottom = this.y + this.size/2 > this.canvasGame.height;
-    //let collisionTop = this.y -this.size/2 <= 0;
-  
-    //return collisionBottom && collisionLeft && collisionTop && collisionRight;
- // }
-
-
 };
 
 /*Game.prototype.setLevelSound = function (){
@@ -217,10 +208,13 @@ Game.prototype.setLevel = function (){
     this.sharks.forEach(function(element){
       element.speed =7;
     });
-    //this.setLevelSound();
-  
-    this.player.level = 2;
-    
+  if (this.player.score ===1000){
+    this.levelSound.play();
+    setTimeout(function(){
+      this.levelSound.pause()}, 2000);
+  }  
+  this.player.level = 2;
+   
   }
 
   if (this.player.score >=2000){
@@ -230,29 +224,41 @@ Game.prototype.setLevel = function (){
     this.sharks.forEach(function(element){
       element.speed =7;
     });
-    // this.setLevelSound();
+    if (this.player.score ===2000){
+      this.levelSound.play();
+      setTimeout(function(){
+        this.levelSound.pause()}, 2000);
+    }  
     this.player.level=3;
   }
 
-  if (this.player.score >=2500){
+  if (this.player.score >=3000){
     this.fishes.forEach(function(element){
       element.speed =7;
     });
     this.sharks.forEach(function(element){
       element.speed =10;
     });
-    // this.setLevelSound();
+    if (this.player.score ===3000){
+      this.levelSound.play();
+      setTimeout(function(){
+        this.levelSound.pause()}, 2000);
+    }  
     this.player.level=4;
   }
 
-  if (this.player.score >=3000){
+  if (this.player.score >=4000){
     this.fishes.forEach(function(element){
       element.speed =10;
     });
     this.sharks.forEach(function(element){
       element.speed =10;
     });
-    // this.setLevelSound();
+    if (this.player.score ===4000){
+      this.levelSound.play();
+      setTimeout(function(){
+        this.levelSound.pause()}, 2000);
+    }  
     this.player.level=5;
   }
   
