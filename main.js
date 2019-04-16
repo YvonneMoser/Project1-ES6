@@ -3,10 +3,6 @@ console.log("here")
 
 
 let imgPlayer = new Image();
-let imgHeart = new Image();
-imgHeart.src = "img/heart.png";
-
-//Hintergrund?
 
 
 function main(){
@@ -20,6 +16,7 @@ function main(){
 
   //Build the Start Screen
   function buildSplashScreen(){
+
     let splashScreen = buildDom(`
     <section id="flash">
     <section id="splash">
@@ -52,7 +49,7 @@ function main(){
   splashSc.style.backgroundColor = "white";
   splashSc.style.width= "80vh";
   splashSc.style.height= "70vh";
-
+  
 
   let buttonPearl = document.querySelector(".pearl");
   buttonPearl.style.borderRadius = "30px";

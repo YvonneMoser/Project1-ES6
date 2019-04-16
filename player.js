@@ -9,7 +9,8 @@ function Player (canvas){
   this.lives = 3;
   this.size = 60;
   this.score = 0; 
-  this.level = 1;
+  this.level = 1
+  ;
   this.speed = 6;
   this.directionX = 0;
   this.directionY = 0;
@@ -20,12 +21,14 @@ Player.prototype.draw1 = function(){
   this.ctx.drawImage(imgPlayer, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
 };
 
-Player.prototype.draw2 = function(){
-  this.ctx.drawImage(imgPlayer2, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
-};
+
 
 //In Vordergrund setzen!
 Player.prototype.draw3 = function(){
+  let imgHeart = new Image();
+  imgHeart.src = "img/heart.png";
+
+
   if (this.lives >=3){
   this.live1 = this.ctx.drawImage(imgHeart, 10, 10, 25, 25);
   this.live2 = this.ctx.drawImage(imgHeart, 40, 10, 25, 25);

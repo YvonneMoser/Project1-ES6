@@ -230,3 +230,7 @@ img#keyboard{
   color: rgb(255, 110, 0);
 }
 
+
+@media only screen and (max-width: 600px) and (orientation: landscape){
+
+}
