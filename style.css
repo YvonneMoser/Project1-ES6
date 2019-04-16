@@ -93,8 +93,7 @@ p {
 body {display: flex;
 justify-content: center;
 background-image: url("img/y3EDfQ.jpg");
-background-size: 100%;
-background-repeat: repeat; /*wie mache ich es dass es sich an Bildschirmgröße anpasst?*/
+background-size: auto auto;
 align-items: center;
 }
 
@@ -234,7 +233,7 @@ img#keyboard{
 
 @media only screen and (max-width: 650px) and (orientation: landscape){
 
-  h1 {
+  h1{
     font-size: 20px;
     margin-bottom: 0;
   }
@@ -253,7 +252,7 @@ img#keyboard{
     margin: 0;
   }
 
-  .start-button {
+  .start-button, .restart-button, .newCharacter {
     font-size: 12px;
     width: 85px;
     margin: 7px 0 0 0;
@@ -274,5 +273,19 @@ img#keyboard{
 
   .score{
     font-size: 10px;
+  }
+
+  .gameOverImg {
+    width: 100px;
+    height: 100px;
+  }
+
+  #endscore{
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
+  .restart-button, .newCharacter {
+    height: 20px;
   }
 }

@@ -178,7 +178,7 @@ function main(){
 
     <section id="gameOverScreen">
     <div class="sharkflex">
-    <img src="img/sharkgameover.png" width="300" height="300px">
+    <img class="gameOverImg" src="img/sharkgameover.png" width="300" height="300px">
     </div>
     <h1>Game Over!</h1>
     <p class="endscore"></p>
