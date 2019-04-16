@@ -4,7 +4,7 @@
 
 function Player (canvas){
   this.canvas = canvas;
-  this.x = 50; //wert eintragen
+  this.x = 50; 
   this.y = this.canvas.height/2;
   this.lives = 3;
   this.size = 60;

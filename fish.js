@@ -30,9 +30,3 @@ Fish.prototype.update = function(){
   this.y = this.y + this.directionY*this.speedY;
 };
 
-/*if (this.newY >= this.y){
-    this.y = this.y + this.directionY*this.speed;
-    }
-  if (this.newY === (this.y+5)){
-      this.y = this.y + this.directionY2*this.speed;
-    }*/

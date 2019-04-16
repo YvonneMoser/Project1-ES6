@@ -1,6 +1,5 @@
 "use strict";
-let imgShark = new Image();
-imgShark.src = "img/findingnemo5.png";
+
 
 function Shark (canvas, y, directionY) {
   this.speed =5;
@@ -15,6 +14,8 @@ function Shark (canvas, y, directionY) {
 };
 
 Shark.prototype.draw = function(){
+  let imgShark = new Image();
+  imgShark.src = "img/findingnemo5.png";
   this.ctx.drawImage(imgShark, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
 };
 

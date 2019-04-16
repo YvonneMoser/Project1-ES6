@@ -122,6 +122,7 @@ Game.prototype.updateCanvas = function (){
 
 //checks if there`s a collision with a shark or a fish. When colliding a shark the player looses one live. by colliding with fish the score increases
 Game.prototype.checkCollisions = function(){
+  
   let sharkSound = document.getElementById("bite"); 
   let fishSound = document.getElementById("fishSound"); 
   let gridSound = document.getElementById("gridSound"); 
@@ -208,14 +209,11 @@ Game.prototype.setLevel = function (){
     this.sharks.forEach(function(element){
       element.speed =7;
     });
-  if (this.player.score ===1000){
+  if (this.player.score ===1000 && this.player.level === 1){
     this.levelSound.play();
-    setTimeout(function(){
-      this.levelSound.pause()}, 2000);
-  }  
   this.player.level = 2;
-   
   }
+}
 
   if (this.player.score >=2000){
     this.fishes.forEach(function(element){
@@ -224,12 +222,11 @@ Game.prototype.setLevel = function (){
     this.sharks.forEach(function(element){
       element.speed =7;
     });
-    if (this.player.score ===2000){
+    if (this.player.score ===2000 && this.player.level === 2){
       this.levelSound.play();
-      setTimeout(function(){
-        this.levelSound.pause()}, 2000);
-    }  
+ 
     this.player.level=3;
+    }
   }
 
   if (this.player.score >=3000){
@@ -239,7 +236,7 @@ Game.prototype.setLevel = function (){
     this.sharks.forEach(function(element){
       element.speed =10;
     });
-    if (this.player.score ===3000){
+    if (this.player.score ===3000&& this.player.level === 3){
       this.levelSound.play();
       setTimeout(function(){
         this.levelSound.pause()}, 2000);
@@ -254,7 +251,7 @@ Game.prototype.setLevel = function (){
     this.sharks.forEach(function(element){
       element.speed =10;
     });
-    if (this.player.score ===4000){
+    if (this.player.score ===4000 && this.player.level === 4){
       this.levelSound.play();
       setTimeout(function(){
         this.levelSound.pause()}, 2000);
@@ -264,8 +261,11 @@ Game.prototype.setLevel = function (){
   
 
   let level= document.querySelector(".level");
-  level.innerHTML = `Level: ${this.player.level}`;
-  level.style.fontSize = "x-large"; 
-  level.style.fontWeight ="bold";
-  level.style.margin ="0 10px 0 25px";
-};
+  if(level){
+    level.innerHTML = `Level: ${this.player.level}`;
+    level.style.fontSize = "x-large"; 
+    level.style.fontWeight ="bold";
+    level.style.margin ="0 10px 0 25px";
+  }
+  
+}
