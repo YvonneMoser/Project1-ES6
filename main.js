@@ -26,21 +26,21 @@ function main(){
     
     <div class="flex-button">
     <div class="flex-img">
-    <img src="img/PinClipart.com_nemo-clip-art_443652.png" width="80">
+    <img class="startImg" src="img/PinClipart.com_nemo-clip-art_443652.png" width="80">
     <button class="pearl start-button">Pearl!</button>
     </div>
 
     <div class="flex-img">
-    <img src="img/squirt.png" width="85">
+    <img class="startImg" src="img/squirt.png" width="85">
     <button class="racker start-button">Racker!</button>
     </div>
 
     <div class="flex-img">
-    <img src="img/dory-icon.png" width="105">
+    <img class="startImg" id="doryImg" src="img/dory-icon.png" width="105">
     <button class="dory start-button">Dory!</button>
     </div>
     </div>
-    <p class="starttext">Move your character by using the arrow keys. Avoid the sharks and swim to all the fish to see if you can find nemo!</p>
+    <p class="hiddentext starttext">Move your character by using the arrow keys. Avoid the sharks and swim to all the fish to see if you can find nemo!</p>
 
     </section>
     </section>`);
@@ -81,7 +81,7 @@ function main(){
 
   function buildGameScreen(){
     let gameScreen = buildDom(`
-    <audio id="bite" src="vid/Apple_Bite-Simon_Craggs-1683647397.mp3"></audio>
+    <audio id="bite" src="vid/Dragon Bite-SoundBible.com-1625781385.wav"></audio>
     <audio id="fishSound" src="vid/smw_coin.wav"></audio>
     <audio id="gridSound" src="vid/smw_stomp_koopa_kid.wav"></audio>
     <audio id="levelSound" src="vid/smw_save_menu.wav"></audio>
@@ -98,8 +98,8 @@ function main(){
       <div class="gameDescription">
         <p class="score scorelevel"></p>
         <p class="level scorelevel"></p>
-        <img id="keyboard" src="img/keyboard (2).png" width="100px" height="100px">
-        <p id="textDescription">Move your character by using the arrow keys. Avoid the sharks and swim to all the fish to see if you can find nemo!</p>
+        <img class="hiddentext" id="keyboard" src="img/keyboard (2).png" width="100px" height="100px">
+        <p class="hiddentext" id="textDescription">Move your character by using the arrow keys. Avoid the sharks and swim to all the fish to see if you can find nemo!</p>
       </div>
     </div>
     `); //wie kann ich bild hier einfügen? mit new Image?

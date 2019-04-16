@@ -231,6 +231,48 @@ img#keyboard{
 }
 
 
-@media only screen and (max-width: 600px) and (orientation: landscape){
 
+@media only screen and (max-width: 650px) and (orientation: landscape){
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
+  canvas {
+    width: 100vw;
+  }
+
+  .startImg {
+    width: 40px;
+    margin-left: 20px;
+  }
+
+  .starttext {
+    font-size: 10px;
+    margin: 0;
+  }
+
+  .start-button {
+    font-size: 12px;
+    width: 85px;
+    margin: 7px 0 0 0;
+  }
+
+  #splash {
+    display: flex;
+    flex-direction: column;  
+  }
+
+  #doryImg{ 
+    width: 52px;
+  }
+
+  .hiddentext {
+    display: none;
+  }
+
+  .score{
+    font-size: 10px;
+  }
 }
