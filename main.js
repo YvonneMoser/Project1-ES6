@@ -36,7 +36,7 @@ function main(){
     </div>
 
     <div class="flex-img">
-    <img class="startImg" id="doryImg" src="img/dory-icon.png" width="105">
+    <img class="startImg" id="doryImg" src="img/dory2.png" width="105">
     <button class="dory start-button">Dory!</button>
     </div>
     </div>
@@ -61,7 +61,7 @@ function main(){
   let buttonDory = document.querySelector(".dory");
   buttonDory.style.borderRadius= "30px";
   buttonDory.addEventListener("click", function(){
-    imgPlayer.src = "img/dory-icon.png";
+    imgPlayer.src = "img/dory2.png";
     buildGameScreen();
   })
 

@@ -93,7 +93,7 @@ p {
 body {display: flex;
 justify-content: center;
 background-image: url("img/y3EDfQ.jpg");
-background-size: auto auto;
+background-size: auto auto; /*cover sieht schöner aus bei vollem bildschirm*/
 align-items: center;
 }
 
@@ -136,7 +136,7 @@ h1 {
 
 .start-button{
   font-size: 20px;
-  border: 2px solid white);
+  border: 2px solid white;
   background-color:  rgb(255, 110, 0);
   margin-top: 23px;
   color: white;
