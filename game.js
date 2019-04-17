@@ -8,6 +8,7 @@ let points = 0;
 function Game (canvas){
   this.player = null;
   this.sharks = [];
+  this.bubbles = [];
   this.fishes = [];
   this.canvas = canvas;
   this.ctx = this.canvas.getContext("2d");
@@ -25,6 +26,14 @@ Game.prototype.startLoop = function (){
 
 
   let loop = () => {
+
+//Push random number of bubbles to the bubbles file
+if (Math.random() > 0.96){
+    let randomNumber = (Math.random()*this.canvas.width);
+    let randomSize = Math.random()*20+2;
+    let randomDirection = Math.random()*2-1;
+    this.bubbles.push(new Bubbles(this.canvas, randomNumber, randomSize, randomDirection));
+}    
 //Push random number of sharks to the sharks array
 //Give sharks a random direction
     if (Math.random() > 0.98){
@@ -58,6 +67,7 @@ Game.prototype.startLoop = function (){
       let randomDirection = Math.floor(Math.random()*2);
       this.fishes.push(new Fish(this.canvas, randomNumber2, "img/turtle.png", randomDirection));
     }
+  
    
    
     this.clearCanvas();
@@ -100,6 +110,9 @@ Game.prototype.drawCanvas = function(){
 
   this.player.draw1();
   this.player.draw3();
+  this.bubbles.forEach(function(bubble){
+    bubble.draw();
+  });
   this.sharks.forEach(function(shark){
   shark.draw();
 });
@@ -118,6 +131,9 @@ Game.prototype.updateCanvas = function (){
   this.fishes.forEach(function(fish){
   fish.update();
   });
+  this.bubbles.forEach(function(bubble){
+    bubble.update();
+  })
 };
 
 //checks if there`s a collision with a shark or a fish. When colliding a shark the player looses one live. by colliding with fish the score increases

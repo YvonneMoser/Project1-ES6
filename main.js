@@ -257,7 +257,3 @@ main();
 window.addEventListener("load", main); 
 
 
-//function(){
- // this.background = this.ctx.drawImage(bg, 0, 0, canvasGame.width, canvasGame.height)
-  //background.x += -(0.5);
-//  background.x %= canvasGame.width;
