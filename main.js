@@ -98,7 +98,7 @@ function main(){
       <div class="gameDescription">
         <p class="score scorelevel"></p>
         <p class="level scorelevel"></p>
-        <img class="hiddentext" id="keyboard" src="img/keyboard_blue.png" width="100px" height="100px">
+        <img class="hiddentext" id="keyboard" src="img/keyboard (2).png" width="100px" height="100px">
         <p class="hiddentext" id="textDescription">Move your character by using the arrow keys. Avoid the sharks and swim to all the fish to see if you can find nemo!</p>
       </div>
     </div>
