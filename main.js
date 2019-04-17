@@ -98,7 +98,7 @@ function main(){
       <div class="gameDescription">
         <p class="score scorelevel"></p>
         <p class="level scorelevel"></p>
-        <img class="hiddentext" id="keyboard" src="img/keyboard (2).png" width="100px" height="100px">
+        <img class="hiddentext" id="keyboard" src="img/keyboard_blue.png" width="100px" height="100px">
         <p class="hiddentext" id="textDescription">Move your character by using the arrow keys. Avoid the sharks and swim to all the fish to see if you can find nemo!</p>
       </div>
     </div>
@@ -182,6 +182,7 @@ function main(){
     </div>
     <h1>Game Over!</h1>
     <p class="endscore"></p>
+    <p id="highscore"></p>
     <div class="flex-button">
     <button class="restart-button">Restart</button>
     <button class="newCharacter">Choose another character!</button>
@@ -190,10 +191,14 @@ function main(){
 
     let loseSound = document.getElementById("loseSound");
 
+    /*window.localStorage.setItem("highScore", JSON.parse(points));
+    let highScore = window.localStorage.getItem("highScore");
+    let highscore = document.getElementById("highscore");
+    highscore.innerHTML =`Highscore: ${highScore}`;*/
 
     let endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
-    endscore.style.color = "rgb(255, 110, 0)";
+    endscore.style.color = "rgb(91, 204, 245)";
     endscore.style.fontSize = "30px";
     endscore.style.fontWeight = "bold";
     endscore.style.textAlign = "center";
@@ -232,7 +237,7 @@ function main(){
 
     let endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
-    endscore.style.color = "rgb(255, 110, 0)";
+    endscore.style.color = "rgb(91, 204, 245)";
     endscore.style.fontSize = "30px";
     endscore.style.fontWeight = "bold";
     endscore.style.textAlign = "center";

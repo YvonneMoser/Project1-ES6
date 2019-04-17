@@ -26,7 +26,8 @@ Game.prototype.startLoop = function (){
 
   let loop = () => {
 
-//Push random number of bubbles to the bubbles file
+//Push random number of bubbles to the bubbles array
+//Gives bubbles random size and random direction
 if (Math.random() > 0.96){
     let randomNumber = (Math.random()*this.canvas.width);
     let randomSize = Math.random()*20+2;
@@ -67,31 +68,36 @@ if (Math.random() > 0.96){
       this.fishes.push(new Fish(this.canvas, randomNumber2, "img/turtle.png", randomDirection));
     }
   
-   
-   
+  //Clears the canvas
     this.clearCanvas();
+  //Updates the canvas
     this.updateCanvas();
+  //Draws the canvas
     this.drawCanvas();
 
+  //Sets the score in the html to the actual score
     let endScore= document.querySelector(".score");
     endScore.innerHTML = `Score: ${this.player.score}`;
     endScore.style.fontSize = "x-large"; 
     endScore.style.fontWeight ="bold";
 
   
-
+  //Checks collision fish and sharks
     this.checkCollisions();
 
+  //Checks collision with wall
     this.checkInCanvas();
 
-  
+  //Sets the levels
     this.setLevel();
+
+  //requestAnimationFrame with the loop stops if the game is won or lost
     if (this.gameOver === false && this.gameWon === false){
       window.requestAnimationFrame(loop);
     }
   }
 
-
+  //Repeats the loop 
 window.requestAnimationFrame(loop);
 
 };
@@ -103,7 +109,7 @@ Game.prototype.clearCanvas = function(){
 
 
 
-// draws the canvas (integrates player, sharks and fishes)
+// draws the canvas (integrates background, player, sharks, fish and bubbles)
 Game.prototype.drawCanvas = function(){
   
   this.background.draw();
@@ -121,7 +127,7 @@ Game.prototype.drawCanvas = function(){
   });
 };
 
-//updates the canvas (new position for sharks, players and fishes)
+//updates the canvas (new position for sharks, players, fishes, bubbles and background)
 Game.prototype.updateCanvas = function (){
   this.background.move();
   this.player.update();
@@ -138,7 +144,8 @@ Game.prototype.updateCanvas = function (){
 
 //checks if there`s a collision with a shark or a fish. When colliding a shark the player looses one live. by colliding with fish the score increases
 Game.prototype.checkCollisions = function(){
-  
+
+  //add sounds if there is a collision
   let sharkSound = document.getElementById("bite"); 
   let fishSound = document.getElementById("fishSound"); 
   let gridSound = document.getElementById("gridSound"); 
