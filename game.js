@@ -107,6 +107,7 @@ Game.prototype.clearCanvas = function(){
 // draws the canvas (integrates player, sharks and fishes)
 Game.prototype.drawCanvas = function(){
   
+  
 
   this.player.draw1();
   this.player.draw3();
