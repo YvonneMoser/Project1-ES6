@@ -77,6 +77,15 @@ Player.prototype.checkFish = function(fish){
   return collisionRight && collisionLeft && collisionTop && collisionBottom;
 };
 
+/*Player.prototype.checkBubble = function(bubble){
+  let collisionRight = this.x + this.size/2 > bubble.x - bubble.size/2;
+  let collisionLeft = this.x - this.size/2 < bubble.x + bubble.size/2;
+  let collisionTop = this.y - this.size/2 < bubble.y + bubble.size/2;
+  let collisionBottom = this.y + this.size/2 > bubble.y - bubble.size/2;
+
+  return collisionRight && collisionLeft && collisionTop && collisionBottom;
+}*/
+
 
 
 Player.prototype.setLives = function(){

@@ -172,6 +172,14 @@ Game.prototype.checkCollisions = function(){
     }
   }
   }); 
+
+ /* this.bubbles.forEach((bubble,index)=> {
+    let collidingBubble = this.player.checkBubble(bubble);
+    if(collidingBubble){
+      this.bubbles.splice(index, 1);
+
+    }
+    }); */
 };
 
 /*Game.prototype.setLevelSound = function (){

@@ -15,9 +15,8 @@ function Bubbles (canvas, x, size, directionX){
 
 Bubbles.prototype.draw = function(){
 this.ctx.beginPath();  
-//globalAlpha = 0.2;  rgba(45, 230, 224, 0.3)
 this.ctx.fillStyle = "rgba(45, 199, 230, 0.3)";
-this.ctx.strokeStyle = "rgba(255, 255, 255, 0.4)"
+this.ctx.strokeStyle = "rgba(182, 238, 246, 0.46)"
 this.ctx.arc(this.x, this.y, this.size, 0, 2*Math.PI);
 this.ctx.fill();
 this.ctx.stroke();
