@@ -98,7 +98,7 @@ function main(){
       <div class="gameDescription">
         <p class="score scorelevel"></p>
         <p class="level scorelevel"></p>
-        <img class="hiddentext" id="keyboard" src="img/keyboard (2).png" width="100px" height="100px">
+        <img class="hiddentext" id="keyboard" src="img/keyboard_blue.png" width="100px" height="100px">
         <p class="hiddentext" id="textDescription">Move your character by using the arrow keys. Avoid the sharks and swim to all the fish to see if you can find nemo!</p>
       </div>
     </div>
@@ -166,8 +166,12 @@ function main(){
     game.startLoop();
     game.setGameOverCallback(buildGameOverScreen);
     game.setGameWonCallback(buildWonScreen);
-   
+
+    if (points > JSON.parse(window.localStorage.getItem("highScore"))){
+      window.localStorage.setItem("highScore", JSON.parse(points))
+    }
   };
+
   
   
   //Build the Gameover Screen
@@ -191,18 +195,29 @@ function main(){
 
     let loseSound = document.getElementById("loseSound");
 
-    /*window.localStorage.setItem("highScore", JSON.parse(points));
-    let highScore = window.localStorage.getItem("highScore");
+    
+    let highScore = JSON.parse(window.localStorage.getItem("highScore"));
     let highscore = document.getElementById("highscore");
-    highscore.innerHTML =`Highscore: ${highScore}`;*/
+    if (points > highScore){
+      highscore.innerHTML =`Highscore: ${points}`;
+    } 
+    else{
+      highscore.innerHTML =`Highscore: ${highScore}`;
+    }
 
     let endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
-    endscore.style.color = "rgb(255, 110, 0)";
+    endscore.style.color = "rgb(91, 204, 245)";
     endscore.style.fontSize = "30px";
     endscore.style.fontWeight = "bold";
     endscore.style.textAlign = "center";
-    endscore.style.marginBottom = "30px";
+    endscore.style.marginBottom = "20px";
+    highscore.style.color = "rgb(91, 204, 245)";
+    highscore.style.fontSize = "20px";
+    highscore.style.fontWeight = "bold";
+    highscore.style.textAlign = "center";
+    highscore.style.marginBottom = "20px";
+
 
     loseSound.play();
 
@@ -237,7 +252,7 @@ function main(){
 
     let endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
-    endscore.style.color = "rgb(255, 110, 0)";
+    endscore.style.color = "rgb(91, 204, 245)";
     endscore.style.fontSize = "30px";
     endscore.style.fontWeight = "bold";
     endscore.style.textAlign = "center";

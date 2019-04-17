@@ -36,7 +36,7 @@ if (Math.random() > 0.96){
 }    
 //Push random number of sharks to the sharks array
 //Give sharks a random direction
-    if (Math.random() > 0.98){
+    if (Math.random() > 0.97){
       let randomNumber = (Math.random()*this.canvas.height-30)+30;
       let randomDirection = Math.random()*2-1;
       this.sharks.push(new Shark(this.canvas, randomNumber, randomDirection));

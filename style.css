@@ -21,7 +21,7 @@ body {
 }
 
 h1 {
-  color: rgb(255, 110, 0);
+  color: rgb(91, 204, 245);
 }
 
 h2 {}
@@ -84,9 +84,9 @@ p {
    /*wie kann ich es ohne width schaffen dass unterer description die gleiche größe hat*/
   margin-top: 10vh;
   height: 70vh; 
-  border-top: 15px solid rgb(255, 110, 0);
-  border-left: 15px solid rgb(255, 110, 0);
-  border-right: 15px solid rgb(255, 110, 0);
+  border-top: 15px solid rgb(91, 204, 245);
+  border-left: 15px solid rgb(91, 204, 245);
+  border-right: 15px solid rgb(91, 204, 245);
   overflow: hidden;
 }
 
@@ -103,9 +103,9 @@ align-items: center;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  border: 15px solid rgb(255, 110, 0);
+  border: 15px solid rgb(91, 204, 245);
   margin-top: 15vh;
-  color: rgb(255, 110, 0);
+  color: rgb(91, 204, 245);
 }
 
 h1 {
@@ -137,7 +137,7 @@ h1 {
 .start-button{
   font-size: 20px;
   border: 2px solid white;
-  background-color:  rgb(255, 110, 0);
+  background-color:  rgb(91, 204, 245);
   margin-top: 23px;
   color: white;
   width: 14vh;
@@ -147,7 +147,7 @@ h1 {
   font-size: 20px;
   margin-top: 20px;
   border: 2px solid white;
-  background-color: rgb(255, 110, 0);
+  background-color: rgb(91, 204, 245);
   color: white;
   width: 14vh;
 }
@@ -157,7 +157,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  border: 15px solid rgb(255, 110, 0);
+  border: 15px solid rgb(91, 204, 245);
   margin-top: 15vh;
   background-color: white;
   width: 80vh;
@@ -169,7 +169,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  border: 15px solid rgb(255, 110, 0);
+  border: 15px solid rgb(91, 204, 245);
   margin-top: 15vh;
   background-color: white;
   width: 80vh;
@@ -179,7 +179,7 @@ h1 {
 .restart-button, .newCharacter{
   font-size: 20px;
   border: 2px solid white;
-  background-color: rgb(255, 110, 0);
+  background-color: rgb(91, 204, 245);
   color: white;
   width: 20vh;
   border-radius: 30px;
@@ -199,7 +199,7 @@ canvas{
   flex-direction: row;
   justify-content: space-between;
   background-color: white;
-  border: 15px solid rgb(255, 110, 0);
+  border: 15px solid rgb(91, 204, 245);
   align-items: center;
 }
 
@@ -213,7 +213,7 @@ img#keyboard{
   padding-left: 30px;
   padding-right: 50px;
   font-size: 18px;
-  color: rgb(255, 110, 0);
+  color: rgb(91, 204, 245);
 }
 
 .score {
@@ -226,7 +226,7 @@ img#keyboard{
 }
 
 .scorelevel {
-  color: rgb(255, 110, 0);
+  color: rgb(91, 204, 245);
 }
 
 
