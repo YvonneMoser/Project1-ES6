@@ -198,7 +198,7 @@ function main(){
 
     let endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
-    endscore.style.color = "rgb(91, 204, 245)";
+    endscore.style.color = "rgb(255, 110, 0)";
     endscore.style.fontSize = "30px";
     endscore.style.fontWeight = "bold";
     endscore.style.textAlign = "center";
@@ -237,7 +237,7 @@ function main(){
 
     let endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
-    endscore.style.color = "rgb(91, 204, 245)";
+    endscore.style.color = "rgb(255, 110, 0)";
     endscore.style.fontSize = "30px";
     endscore.style.fontWeight = "bold";
     endscore.style.textAlign = "center";
