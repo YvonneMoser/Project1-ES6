@@ -189,9 +189,9 @@ h1 {
 }
 
 canvas{
-  background-image: url("img/y3EDfQ.jpg");
-  background-size: 120%;
-  box-sizing: border-box;
+  /*background-image: url("img/y3EDfQ.jpg");
+  /* background-size: 120%;
+  box-sizing: border-box;*/
 }
 
 .gameDescription{

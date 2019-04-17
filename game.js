@@ -3,7 +3,6 @@
 let points = 0;
 
 
-
 //creates a Game constructor
 function Game (canvas){
   this.player = null;
@@ -17,12 +16,12 @@ function Game (canvas){
 }
 
 
-
 //Start the loop (by calling the update, draw and clear function)
 Game.prototype.startLoop = function (){
 
   this.player = new Player(this.canvas);
   this.levelSound = document.getElementById("levelSound"); 
+  this.background = new BackgroundImg(this.canvas);
 
 
   let loop = () => {
@@ -107,8 +106,7 @@ Game.prototype.clearCanvas = function(){
 // draws the canvas (integrates player, sharks and fishes)
 Game.prototype.drawCanvas = function(){
   
-  
-
+  this.background.draw();
   this.player.draw1();
   this.player.draw3();
   this.bubbles.forEach(function(bubble){
@@ -125,6 +123,7 @@ Game.prototype.drawCanvas = function(){
 
 //updates the canvas (new position for sharks, players and fishes)
 Game.prototype.updateCanvas = function (){
+  this.background.move();
   this.player.update();
   this.sharks.forEach(function(shark){
     shark.update();
