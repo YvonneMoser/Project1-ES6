@@ -1,6 +1,6 @@
 "use strict";
 
-
+//Constructor for sharks
 function Shark (canvas, y, directionY) {
   this.speed =5;
   this.speedY = 2;
@@ -13,12 +13,14 @@ function Shark (canvas, y, directionY) {
   this.y =y;
 };
 
+//Draws shark in canvas
 Shark.prototype.draw = function(){
   let imgShark = new Image();
   imgShark.src = "img/findingnemo5.png";
   this.ctx.drawImage(imgShark, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
 };
 
+//Moves shark in canvas
 Shark.prototype.update = function(){
   this.x = this.x + this.directionX*this.speed;
   this.y = this.y + this.directionY*this.speedY;

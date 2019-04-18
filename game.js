@@ -23,7 +23,6 @@ Game.prototype.startLoop = function (){
   this.levelSound = document.getElementById("levelSound"); 
   this.background = new BackgroundImg(this.canvas);
 
-
   let loop = () => {
 
 //Push random number of bubbles to the bubbles array
@@ -114,16 +113,15 @@ Game.prototype.drawCanvas = function(){
   
   this.background.draw();
   this.player.draw1();
-  this.player.draw3();
+  this.player.hearts();
   this.bubbles.forEach(function(bubble){
     bubble.draw();
   });
   this.sharks.forEach(function(shark){
-  shark.draw();
-});
+    shark.draw();
+  });
   this.fishes.forEach(function(fish){
-  fish.draw1();
-
+    fish.draw1();
   });
 };
 
@@ -135,11 +133,11 @@ Game.prototype.updateCanvas = function (){
     shark.update();
   });
   this.fishes.forEach(function(fish){
-  fish.update();
+    fish.update();
   });
   this.bubbles.forEach(function(bubble){
     bubble.update();
-  })
+  });
 };
 
 //checks if there`s a collision with a shark or a fish. When colliding a shark the player looses one live. By colliding with fish the score increases
@@ -166,18 +164,18 @@ Game.prototype.checkCollisions = function(){
   });
 
   this.fishes.forEach((fish,index)=> {
-  let collidingFish = this.player.checkFish(fish);
-  if(collidingFish){
-    this.fishes.splice(index, 1);
-    this.player.setScore();
-    fishSound.play();
-    if (this.player.score > 5900){      
-      points = this.player.score;
-      this.gameWon = true;
-      this.clearCanvas();
-      this.onGameWon();
-    }
-  }
+    let collidingFish = this.player.checkFish(fish);
+    if(collidingFish){
+      this.fishes.splice(index, 1);
+      this.player.setScore();
+      fishSound.play();
+      if (this.player.score > 5900){      
+        points = this.player.score;
+        this.gameWon = true;
+        this.clearCanvas();
+        this.onGameWon();
+      }
+    } 
   }); 
 };
 
@@ -189,7 +187,7 @@ Game.prototype.checkInCanvas = function(){
     gridSound.play();
     this.player.x = this.canvas.width -this.player.size;
     this.player.setDirectionX(0);
-}
+  }
   if (this.player.x-this.player.size/2 <= 0) {
     gridSound.play();
     this.player.x = 0+this.player.size/2
@@ -205,7 +203,7 @@ Game.prototype.checkInCanvas = function(){
     this.player.y = 0+this.player.size/2
     this.player.setDirectionY(0);
   }
-  };
+};
 
 
 //Callback to main.js
@@ -220,15 +218,16 @@ Game.prototype.setGameWonCallback = function (callback){
 
 //Set different levels
 Game.prototype.setLevel = function (){
+
   if (this.player.score >= 1000){
     this.sharks.forEach(function(element){
       element.speed =7;
     });
-  if (this.player.score === 1000 && this.player.level === 1){
-    this.levelSound.play();
-    this.player.level = 2;
+    if (this.player.score === 1000 && this.player.level === 1){
+      this.levelSound.play();
+      this.player.level = 2;
+    }
   }
-}
 
   if (this.player.score >= 2000){
     this.fishes.forEach(function(element){
@@ -291,4 +290,4 @@ Game.prototype.setLevel = function (){
     level.style.margin ="0 10px 0 25px";
   }
   
-}
+};

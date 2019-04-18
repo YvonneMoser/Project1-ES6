@@ -1,9 +1,6 @@
 "use strict";
 
-
-
-
-
+//Constructor for fish
 function Fish (canvas, y, img, directionY){
   this.speed = 5;
   this.speedY = 0.5;
@@ -15,16 +12,16 @@ function Fish (canvas, y, img, directionY){
   this.ctx = this.canvas.getContext("2d");
   this.x = this.canvas.width+this.size/2;
   this.y = y;
-  }
+  };
 
+//Draws fish in canvas
 Fish.prototype.draw1 = function(){
-  
-let fish1 = new Image();
-fish1.src = this.image;
+  let fish1 = new Image();
+  fish1.src = this.image;
   this.ctx.drawImage(fish1, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
 };
 
-
+//Move fish in canvas
 Fish.prototype.update = function(){
   this.x = this.x + this.direction*this.speed;
   this.y = this.y + this.directionY*this.speedY;
