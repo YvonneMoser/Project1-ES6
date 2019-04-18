@@ -17,7 +17,7 @@ function main(){
   function buildSplashScreen(){
 
     let splashScreen = buildDom(`
-    <section id="flash">
+    <section>
     <div id="background-wrap">
     <div class="bubble x1"></div>
     <div class="bubble x2"></div>
@@ -35,18 +35,18 @@ function main(){
     <div class="starttext"> Please help us to find Nemo!</br>
     Choose your Character to start the game!</div>
     
-    <div class="flex-button">
-    <div class="flex-img">
+    <div class="flex-button-splash">
+    <div class="flex-img-splash">
     <img class="startImg" src="img/PinClipart.com_nemo-clip-art_443652.png" width="80">
     <button class="pearl start-button">Pearl!</button>
     </div>
 
-    <div class="flex-img">
+    <div class="flex-img-splash">
     <img class="startImg" src="img/squirt.png" width="85">
     <button class="racker start-button">Racker!</button>
     </div>
 
-    <div class="flex-img">
+    <div class="flex-img-splash">
     <img class="startImg" id="doryImg" src="img/dory2.png" width="105">
     <button class="dory start-button">Dory!</button>
     </div>
@@ -100,7 +100,7 @@ function main(){
 
 
 
-    <div class="bla">
+    <div class="gameScreen">
       <div id="game-border">
         <section id="game-container">
           <canvas></canvas>
@@ -207,13 +207,13 @@ function main(){
     <div class="bubble x10"></div>
 </div>
     <section id="gameOverScreen">
-    <div class="sharkflex">
+    <div class="ImgFlex">
     <img class="gameOverImg" src="img/sharkgameover.png" width="45%" height="100%">
     </div>
     <h1 class="gameOver">Game Over!</h1>
     <p class="endscore"></p>
     <p id="highscore"></p>
-    <div class="flex-button">
+    <div class="flex-button-splash">
     <button class="restart-button">Restart</button>
     <button class="newCharacter">Choose another character!</button>
     </div>
@@ -276,12 +276,12 @@ function main(){
     <div class="bubble x10"></div>
 </div>
     <section id="gameWonScreen">
-    <div class="sharkflex">
+    <div class="ImgFlex">
     <img src="img/foundNemo.png" width="80%" height="90%">
     </div>
     <h1>You found Nemo!</h1>
     <p class="endscore"></p>
-    <div class="flex-button">
+    <div class="flex-button-splash">
     <button class="restart-button">Restart</button>
     <button class="newCharacter">Choose another character!</button>
     </div>

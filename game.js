@@ -91,7 +91,7 @@ if (Math.random() > 0.96){
   //Sets the levels
     this.setLevel();
 
-  //requestAnimationFrame with the loop stops if the game is won or lost
+  //requestAnimationFrame (the loop stops if the game is won or lost)
     if (this.gameOver === false && this.gameWon === false){
       window.requestAnimationFrame(loop);
     }
@@ -109,7 +109,7 @@ Game.prototype.clearCanvas = function(){
 
 
 
-// draws the canvas (integrates background, player, sharks, fish and bubbles)
+// draws the canvas (integrates moving background, player, sharks, fish and bubbles)
 Game.prototype.drawCanvas = function(){
   
   this.background.draw();
@@ -142,7 +142,7 @@ Game.prototype.updateCanvas = function (){
   })
 };
 
-//checks if there`s a collision with a shark or a fish. When colliding a shark the player looses one live. by colliding with fish the score increases
+//checks if there`s a collision with a shark or a fish. When colliding a shark the player looses one live. By colliding with fish the score increases
 Game.prototype.checkCollisions = function(){
 
   //add sounds if there is a collision
@@ -179,25 +179,9 @@ Game.prototype.checkCollisions = function(){
     }
   }
   }); 
-
- /* this.bubbles.forEach((bubble,index)=> {
-    let collidingBubble = this.player.checkBubble(bubble);
-    if(collidingBubble){
-      this.bubbles.splice(index, 1);
-
-    }
-    }); */
 };
 
-/*Game.prototype.setLevelSound = function (){
-  
-    levelSound.play();
 
-    setTimeout(function(){
-        levelSound.pause();
-        levelSound.currentTime = 0;
-    }, 800);
-};*/
 
 //Check that player is inside the canvas
 Game.prototype.checkInCanvas = function(){
@@ -236,58 +220,66 @@ Game.prototype.setGameWonCallback = function (callback){
 
 //Set different levels
 Game.prototype.setLevel = function (){
-  if (this.player.score >=1000){
+  if (this.player.score >= 1000){
     this.sharks.forEach(function(element){
       element.speed =7;
     });
-  if (this.player.score ===1000 && this.player.level === 1){
+  if (this.player.score === 1000 && this.player.level === 1){
     this.levelSound.play();
-  this.player.level = 2;
+    this.player.level = 2;
   }
 }
 
-  if (this.player.score >=2000){
+  if (this.player.score >= 2000){
     this.fishes.forEach(function(element){
       element.speed =7;
     });
     this.sharks.forEach(function(element){
       element.speed =7;
     });
-    if (this.player.score ===2000 && this.player.level === 2){
+    if (this.player.score === 2000 && this.player.level === 2){
       this.levelSound.play();
- 
-    this.player.level=3;
+      this.player.level=3;
     }
   }
 
-  if (this.player.score >=3000){
+  if (this.player.score >= 3000){
     this.fishes.forEach(function(element){
       element.speed =7;
     });
     this.sharks.forEach(function(element){
       element.speed =10;
     });
-    if (this.player.score ===3000&& this.player.level === 3){
+    if (this.player.score === 3000 && this.player.level === 3){
       this.levelSound.play();
-      setTimeout(function(){
-        this.levelSound.pause()}, 2000);
+      this.player.level=4;
     }  
-    this.player.level=4;
   }
 
-  if (this.player.score >=4000){
+  if (this.player.score >= 4000){
     this.fishes.forEach(function(element){
       element.speed =10;
     });
     this.sharks.forEach(function(element){
       element.speed =10;
     });
-    if (this.player.score ===4000 && this.player.level === 4){
+    if (this.player.score === 4000 && this.player.level === 4){
       this.levelSound.play();
-      setTimeout(function(){
-        this.levelSound.pause()}, 2000);
+      this.player.level=5;
     }  
-    this.player.level=5;
+  }
+
+  if (this.player.score >= 5000){
+    this.fishes.forEach(function(element){
+      element.speed =12;
+    });
+    this.sharks.forEach(function(element){
+      element.speed =10;
+    });
+    if (this.player.score === 5000 && this.player.level === 5){
+      this.levelSound.play();
+      this.player.level=6;
+    }  
   }
   
 

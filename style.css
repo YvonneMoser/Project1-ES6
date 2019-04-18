@@ -71,7 +71,7 @@ p {
 
 /* ---- section ---- */
 
-.bla{
+.gameScreen{
   width:70vw;
 }
 
@@ -119,13 +119,13 @@ h1 {
 }
 
 
-.flex-button{
+.flex-button-splash{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.flex-img {
+.flex-img-splash {
   display: flex;
   flex-direction: column;
 }
@@ -216,7 +216,6 @@ img#keyboard{
 }
 
 
-
 #textDescription{
   padding-left: 30px;
   padding-right: 50px;
@@ -228,7 +227,7 @@ img#keyboard{
   padding-left: 15px;
 }
 
-.sharkflex{
+.ImgFlex{
   display:flex;
   justify-content: center;
 }
@@ -247,6 +246,11 @@ img#keyboard{
   animation-iteration-count: infinite;
 }
 
+.gameOverImg {
+  animation-name: Imgkeyframe;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
 
 @keyframes h1Animation {
 0%, 100% {
@@ -261,6 +265,17 @@ img#keyboard{
 }
 }
 
+@keyframes Imgkeyframe {
+  0%, 100% {
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+  }
+  50% {
+      transform: scale(1.2);
+      -webkit-transform: scale(1.2);
+  }
+  }
+
 @keyframes buttonHover {
   0%, 100% {
       transform: scale(1.0);
@@ -271,6 +286,11 @@ img#keyboard{
       -webkit-transform: scale(1.2);
   }
   }
+
+
+  
+
+
 
 /*coppied this one :)*/
 #background-wrap {
