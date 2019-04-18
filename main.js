@@ -155,7 +155,7 @@ function main(){
         game.player.setDirectionY(1);
       }
       if (event.keyCode === 37){
-        game.player.setDirectionX(-1);
+        game.player.setDirectionX(-1.5);
       }
       if (event.keyCode === 39 ){
         game.player.setDirectionX(1);
