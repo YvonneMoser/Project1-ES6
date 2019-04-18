@@ -88,11 +88,11 @@ function main(){
 
 
 
-  //Build the Game Screen
+  //Build the Game Screen //vid/Dragon Bite-SoundBible.com-1625781385.wav
 
   function buildGameScreen(){
     let gameScreen = buildDom(`
-    <audio id="bite" src="vid/Dragon Bite-SoundBible.com-1625781385.wav"></audio>
+    <audio id="bite" src="vid/shark3.mov"></audio> 
     <audio id="fishSound" src="vid/smw_coin.wav"></audio>
     <audio id="gridSound" src="vid/smw_stomp_koopa_kid.wav"></audio>
     <audio id="levelSound" src="vid/smw_save_menu.wav"></audio>
@@ -210,7 +210,7 @@ function main(){
     <div class="sharkflex">
     <img class="gameOverImg" src="img/sharkgameover.png" width="45%" height="100%">
     </div>
-    <h1>Game Over!</h1>
+    <h1 class="gameOver">Game Over!</h1>
     <p class="endscore"></p>
     <p id="highscore"></p>
     <div class="flex-button">
