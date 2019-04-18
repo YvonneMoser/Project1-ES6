@@ -236,8 +236,11 @@ img#keyboard{
   color: rgb(91, 204, 245);
 }
 
-.gameOver {
-  color: rgb(255, 110, 0);
+
+.foundNemo, .gameOver {
+  animation-name: foundNemo;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
 }
 
 .splashH1 {
@@ -251,6 +254,22 @@ img#keyboard{
   animation-duration: 4s;
   animation-iteration-count: infinite;
 }
+
+@keyframes foundNemo {
+  0%, 100% {
+    opacity: 0.5; 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    color:rgb(91, 204, 245)
+}
+50% {
+    opacity: 1; 
+    transform: scale(1.4);
+    -webkit-transform: scale(1.4);
+    color: rgb(255, 110, 0);
+}
+}
+
 
 @keyframes h1Animation {
 0%, 100% {

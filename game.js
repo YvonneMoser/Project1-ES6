@@ -169,7 +169,7 @@ Game.prototype.checkCollisions = function(){
       this.fishes.splice(index, 1);
       this.player.setScore();
       fishSound.play();
-      if (this.player.score > 5900){      
+      if (this.player.score > 200){      
         points = this.player.score;
         this.gameWon = true;
         this.clearCanvas();

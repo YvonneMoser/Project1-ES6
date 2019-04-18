@@ -276,7 +276,7 @@ function main(){
       <div class="ImgFlex">
         <img src="img/foundNemo.png" width="80%" height="90%">
       </div>
-      <h1>You found Nemo!</h1>
+      <h1 class="foundNemo">You found Nemo!</h1>
       <p class="endscore"></p>
       <div class="flex-button-splash">
         <button class="restart-button">Restart</button>
