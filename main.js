@@ -1,4 +1,3 @@
-console.log("here")
 "use strict";
 
 
@@ -19,8 +18,20 @@ function main(){
 
     let splashScreen = buildDom(`
     <section id="flash">
+    <div id="background-wrap">
+    <div class="bubble x1"></div>
+    <div class="bubble x2"></div>
+    <div class="bubble x3"></div>
+    <div class="bubble x4"></div>
+    <div class="bubble x5"></div>
+    <div class="bubble x6"></div>
+    <div class="bubble x7"></div>
+    <div class="bubble x8"></div>
+    <div class="bubble x9"></div>
+    <div class="bubble x10"></div>
+</div>
     <section id="splash">
-    <h1>Finding Nemo!</h1>
+    <h1 class="splashH1">Finding Nemo!</h1>
     <div class="starttext"> Please help us to find Nemo!</br>
     Choose your Character to start the game!</div>
     
@@ -102,13 +113,14 @@ function main(){
         <p class="hiddentext" id="textDescription">Move your character by using the arrow keys. Avoid the sharks and swim to all the fish to see if you can find nemo!</p>
       </div>
     </div>
-    `); //wie kann ich bild hier einfügen? mit new Image?
+    `); 
     
    
     let gameContainer = document.querySelector("#game-container");
     let gameText= document.querySelector(".gameDescription");
-    let startSound = document.getElementById("startSound");
 
+    //Add sound at the start
+    let startSound = document.getElementById("startSound");
     startSound.play();
 
     //Make the canvas responsive
@@ -132,10 +144,12 @@ function main(){
     gameText.setAttribute("width", width);
     gameText.setAttribute("height", height);
     
+
     //Create a new game
     let game = new Game(canvasGame);
 
-    //Set direction by moving the arrows
+
+    //Set direction (player.js) by moving the arrows
     document.addEventListener("keydown", function(){
       if (event.keyCode ===38){
         game.player.setDirectionY(-1);
@@ -151,7 +165,7 @@ function main(){
       }
     });
 
-    //Set direction to 0 if key is not pressed
+    //Set direction (player.js) to 0 if key is not pressed
     document.addEventListener("keyup", function(event){
       if (event.keyCode === 37 || event.keyCode === 39){
         game.player.setDirectionX(0);
@@ -167,6 +181,7 @@ function main(){
     game.setGameOverCallback(buildGameOverScreen);
     game.setGameWonCallback(buildWonScreen);
 
+    //Sets highscore on local Browser to the points of the actual round if the highscore is lower than the points 
     if (points > JSON.parse(window.localStorage.getItem("highScore"))){
       window.localStorage.setItem("highScore", JSON.parse(points))
     }
@@ -179,10 +194,21 @@ function main(){
   function buildGameOverScreen(){
     let gameOverScreen = buildDom(`
     <audio id="loseSound" src="vid/You-lose-sound-effect.mp3"></audio>
-
+    <div id="background-wrap">
+    <div class="bubble x1"></div>
+    <div class="bubble x2"></div>
+    <div class="bubble x3"></div>
+    <div class="bubble x4"></div>
+    <div class="bubble x5"></div>
+    <div class="bubble x6"></div>
+    <div class="bubble x7"></div>
+    <div class="bubble x8"></div>
+    <div class="bubble x9"></div>
+    <div class="bubble x10"></div>
+</div>
     <section id="gameOverScreen">
     <div class="sharkflex">
-    <img class="gameOverImg" src="img/sharkgameover.png" width="300" height="300px">
+    <img class="gameOverImg" src="img/sharkgameover.png" width="45%" height="100%">
     </div>
     <h1>Game Over!</h1>
     <p class="endscore"></p>
@@ -192,6 +218,7 @@ function main(){
     <button class="newCharacter">Choose another character!</button>
     </div>
     </section>`);
+
 
     let loseSound = document.getElementById("loseSound");
 
@@ -205,6 +232,7 @@ function main(){
       highscore.innerHTML =`Highscore: ${highScore}`;
     }
 
+    //Add the score from the Gamescreen to the Gameover Screen
     let endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
     endscore.style.color = "rgb(91, 204, 245)";
@@ -218,12 +246,12 @@ function main(){
     highscore.style.textAlign = "center";
     highscore.style.marginBottom = "20px";
 
-
+    //Add sound to Gameover Screen
     loseSound.play();
 
+    //Add Eventlistener to the buttons to come to the Gamescreen or Startscreen
     let restartButton = document.querySelector(".restart-button");
     restartButton.addEventListener("click", buildGameScreen);
-
     let characterButton = document.querySelector(".newCharacter");
     characterButton.addEventListener("click", buildSplashScreen);
 
@@ -235,6 +263,18 @@ function main(){
   function buildWonScreen(){
     let gameOverScreen = buildDom(`
     <audio id="wonSound" src="vid/Ta Da-SoundBible.com-1884170640.wav"></audio>
+    <div id="background-wrap">
+    <div class="bubble x1"></div>
+    <div class="bubble x2"></div>
+    <div class="bubble x3"></div>
+    <div class="bubble x4"></div>
+    <div class="bubble x5"></div>
+    <div class="bubble x6"></div>
+    <div class="bubble x7"></div>
+    <div class="bubble x8"></div>
+    <div class="bubble x9"></div>
+    <div class="bubble x10"></div>
+</div>
     <section id="gameWonScreen">
     <div class="sharkflex">
     <img src="img/foundNemo.png" width="80%" height="90%">
@@ -249,7 +289,7 @@ function main(){
  
     let wonSound = document.getElementById("wonSound");
 
-
+    //Add the Score from Gamescreen to the Wonscreen
     let endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
     endscore.style.color = "rgb(91, 204, 245)";
@@ -258,15 +298,14 @@ function main(){
     endscore.style.textAlign = "center";
     endscore.style.marginBottom = "30px"
 
+    //Add sound to the WonScreen
     wonSound.play();
 
-
+    //Add Eventlistener to the buttons to come to the Gamescreen or Startscreen
     let restartButton = document.querySelector(".restart-button");
     restartButton.addEventListener("click", buildGameScreen);
-
     let characterButton = document.querySelector(".newCharacter");
     characterButton.addEventListener("click", buildSplashScreen);
- 
   };
 
 buildSplashScreen();
