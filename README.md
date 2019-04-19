@@ -3,20 +3,25 @@
 
 ## Description
 
-The game is about helping Dory find Nemo. Dory has to avoid the sharks (by using the arrow keys). Dory can collect points by swimming to the clownfish and asking them for help (200 points per clownfish).  
-The game can be won if a score of 5000 points is reached. 
+The game is about helping the charcter to find Nemo. The character has to avoid the sharks (by using the arrow keys). You can collect points by swimming to the fish and asking them for help (200 points per fish).  
+The game can be won if a score of 6000 points is reached. 
 If Dory loses 3 lives by colliding with the sharks, the game is over. 
+You can reach different levels. With every level the fish and sharks become faster.
+
+##Specials
+The User can choose his character
+Moving Background in canvas
+Local Storage: Score
+Different Levels
+Sound effects
+Collisions with sharks and fish
 
 
 ## MVP (CANVAS)
-Canvas: The player can move up/down/right/left to avoid the sharks and catch the fishes
+Canvas: The player can move up/down/right/left to avoid the sharks and catch the fish.
 
 ## Backlog
-Enemies
-Friends - Catch Coins
-Win Game by reaching score
-Game over by loosing 3 lives
-Moving Background
+Mobile Version
 
 
 ## Data Structure 
@@ -63,8 +68,10 @@ function startLoop(){
     this.updateCanvas();
     this.drawCanvas();
     this.checkCollisions();
+    
 };
 
+Game.prototype.setLevel();
 setGameOverCallback();
 setGameWonCallback();
 
@@ -113,11 +120,29 @@ Shark.prototype.draw = function(){};
 
 Shark.prototype.update = function(){};
 
+## bubbles.js
 
-HTML files:
+function Bubble (canvas){
+}
+
+Bubble.prototype.draw = function(){};
+
+Bubble.prototype.update = function(){};
+
+## background.js
+
+function BackgroundImg (canvas){
+}
+
+BackgroundImg.prototype.draw = function(){};
+
+BackgroundImg.prototype.move = function(){};
+
+
+## HTML files:
 -index.html
 
-CSS files:
+## CSS files:
 -style.css
 
 
@@ -155,10 +180,11 @@ CSS files:
 ## Links
 
 - Trello
-Link url: https://trello.com/
+Link url: https://trello.com/b/DTbg4tIY/project-finding-nemo
 
-- Git
+- Github
+Link url: https://yvonnemoser.github.io/Ironhack-Project-1/
 
 
 - Slides
-URls for the project presentation (slides) Link https://slides.com/
+URls for the project presentation (slides) Link https://docs.google.com/presentation/d/1Nr1HsBH-Ut2SD04Fg1j8z9krNw9mJlDAoIlBKoPpDHY/edit?usp=sharing
