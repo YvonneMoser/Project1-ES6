@@ -17,7 +17,7 @@ class Fish {
 
   //Draws fish in canvas
   draw1() {
-    let fish1 = new Image();
+    const fish1 = new Image();
     fish1.src = this.image;
     this.ctx.drawImage(fish1, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
   };

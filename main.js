@@ -1,22 +1,22 @@
 "use strict";
 
 
-let imgPlayer = new Image();
+const imgPlayer = new Image();
 
 
-function main(){
+const main = () => {
 
-  let mainSection = document.querySelector("main");
-  function buildDom(html){
+  const mainSection = document.querySelector("main");
+  const buildDom = (html) => {
     mainSection.innerHTML = html;
     return mainSection;
   };
 
 
   //Build the Start Screen
-  function buildSplashScreen(){
+  const buildSplashScreen = () =>{
 
-    let splashScreen = buildDom(`
+    const splashScreen = buildDom(`
     <section>
       <div id="background-wrap">
         <div class="bubble x1"></div>
@@ -55,29 +55,29 @@ function main(){
       </section>
     </section>`);
   
-    let splashSc= document.querySelector("#splash");
+    const splashSc= document.querySelector("#splash");
     splashSc.style.backgroundColor = "white";
     splashSc.style.width= "80vh";
     splashSc.style.height= "70vh";
     
 
-    let buttonPearl = document.querySelector(".pearl");
+    const buttonPearl = document.querySelector(".pearl");
     buttonPearl.style.borderRadius = "30px";
-    buttonPearl.addEventListener("click", function(){
+    buttonPearl.addEventListener("click",()=>{
       imgPlayer.src = "img/PinClipart.com_nemo-clip-art_443652.png";
       buildGameScreen();
     });
 
-    let buttonDory = document.querySelector(".dory");
+    const buttonDory = document.querySelector(".dory");
     buttonDory.style.borderRadius= "30px";
-    buttonDory.addEventListener("click", function(){
+    buttonDory.addEventListener("click", ()=>{
       imgPlayer.src = "img/dory2.png";
       buildGameScreen();
     });
 
-    let buttonRacker = document.querySelector(".racker");
+    const buttonRacker = document.querySelector(".racker");
     buttonRacker.style.borderRadius = "30px";
-    buttonRacker.addEventListener("click", function(){
+    buttonRacker.addEventListener("click", ()=>{
       imgPlayer.src = "img/squirt.png";
       buildGameScreen();
     });
@@ -87,8 +87,8 @@ function main(){
 
   //Build the Game Screen //vid/Dragon Bite-SoundBible.com-1625781385.wav
 
-  function buildGameScreen(){
-    let gameScreen = buildDom(`
+  const buildGameScreen = () => {
+    const gameScreen = buildDom(`
     <audio id="bite" src="vid/shark3.mov"></audio> 
     <audio id="fishSound" src="vid/smw_coin.wav"></audio>
     <audio id="gridSound" src="vid/smw_stomp_koopa_kid.wav"></audio>
@@ -113,16 +113,16 @@ function main(){
     `); 
     
    
-    let gameContainer = document.querySelector("#game-container");
-    let gameText= document.querySelector(".gameDescription");
+    const gameContainer = document.querySelector("#game-container");
+    const gameText= document.querySelector(".gameDescription");
 
     //Add sound at the start
-    let startSound = document.getElementById("startSound");
+    const startSound = document.getElementById("startSound");
     startSound.play();
 
     //Make the canvas responsive
-    let width = gameContainer.offsetWidth;
-    let height = gameContainer.offsetHeight;
+    const width = gameContainer.offsetWidth;
+    const height = gameContainer.offsetHeight;
     window.addEventListener("resize", ()=> {
     width = gameContainer.offsetWidth;
     height = gameContainer.offsetHeight;
@@ -132,7 +132,7 @@ function main(){
     gameText.setAttribute("height", height);
     })
 
-    let canvasGame= document.querySelector("canvas");
+    const canvasGame= document.querySelector("canvas");
 
     canvasGame.setAttribute("width", width);
     canvasGame.setAttribute("height", height);
@@ -143,11 +143,11 @@ function main(){
     
 
     //Create a new game
-    let game = new Game(canvasGame);
+    const game = new Game(canvasGame);
 
 
     //Set direction (player.js) by moving the arrows
-    document.addEventListener("keydown", function(){
+    document.addEventListener("keydown", () => {
       if (event.keyCode ===38){
         game.player.setDirectionY(-1);
       }
@@ -163,7 +163,7 @@ function main(){
     });
 
     //Set direction (player.js) to 0 if key is not pressed
-    document.addEventListener("keyup", function(event){
+    document.addEventListener("keyup", (event) => {
       if (event.keyCode === 37 || event.keyCode === 39){
         game.player.setDirectionX(0);
       }
@@ -188,8 +188,8 @@ function main(){
   
   //Build the Gameover Screen
 
-  function buildGameOverScreen(){
-    let gameOverScreen = buildDom(`
+  const buildGameOverScreen = () => {
+    const gameOverScreen = buildDom(`
     <audio id="loseSound" src="vid/You-lose-sound-effect.mp3"></audio>
     <div id="background-wrap">
       <div class="bubble x1"></div>
@@ -217,11 +217,11 @@ function main(){
     </section>`);
 
 
-    let loseSound = document.getElementById("loseSound");
+    const loseSound = document.getElementById("loseSound");
 
     
-    let highScore = JSON.parse(window.localStorage.getItem("highScore"));
-    let highscore = document.getElementById("highscore");
+    const highScore = JSON.parse(window.localStorage.getItem("highScore"));
+    const highscore = document.getElementById("highscore");
     if (points > highScore){
       highscore.innerHTML =`Highscore: ${points}`;
     } 
@@ -230,7 +230,7 @@ function main(){
     }
 
     //Add the score from the Gamescreen to the Gameover Screen
-    let endscore = document.querySelector(".endscore");
+    const endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
     endscore.style.color = "rgb(91, 204, 245)";
     endscore.style.fontSize = "30px";
@@ -247,9 +247,9 @@ function main(){
     loseSound.play();
 
     //Add Eventlistener to the buttons to come to the Gamescreen or Startscreen
-    let restartButton = document.querySelector(".restart-button");
+    const restartButton = document.querySelector(".restart-button");
     restartButton.addEventListener("click", buildGameScreen);
-    let characterButton = document.querySelector(".newCharacter");
+    const characterButton = document.querySelector(".newCharacter");
     characterButton.addEventListener("click", buildSplashScreen);
 
   };
@@ -257,8 +257,8 @@ function main(){
   
   //Build the Won Screen
 
-  function buildWonScreen(){
-    let gameOverScreen = buildDom(`
+  const buildWonScreen = () => {
+    const gameOverScreen = buildDom(`
     <audio id="wonSound" src="vid/Ta Da-SoundBible.com-1884170640.wav"></audio>
     <div id="background-wrap">
       <div class="bubble x1"></div>
@@ -284,10 +284,10 @@ function main(){
       </div>
     </section>`);
  
-    let wonSound = document.getElementById("wonSound");
+    const wonSound = document.getElementById("wonSound");
 
     //Add the Score from Gamescreen to the Wonscreen
-    let endscore = document.querySelector(".endscore");
+    const endscore = document.querySelector(".endscore");
     endscore.innerHTML= `Score: ${points}`;
     endscore.style.color = "rgb(91, 204, 245)";
     endscore.style.fontSize = "30px";
@@ -299,9 +299,9 @@ function main(){
     wonSound.play();
 
     //Add Eventlistener to the buttons to come to the Gamescreen or Startscreen
-    let restartButton = document.querySelector(".restart-button");
+    const restartButton = document.querySelector(".restart-button");
     restartButton.addEventListener("click", buildGameScreen);
-    let characterButton = document.querySelector(".newCharacter");
+    const characterButton = document.querySelector(".newCharacter");
     characterButton.addEventListener("click", buildSplashScreen);
   };
 

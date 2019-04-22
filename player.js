@@ -25,7 +25,7 @@ class Player {
 
   //Draws players lives (hearts) in canvas and updates if player loses life
   hearts(){
-    let imgHeart = new Image();
+    const imgHeart = new Image();
     imgHeart.src = "img/heart.png";
 
     if (this.lives >=3){
@@ -61,19 +61,19 @@ class Player {
 
   //Check collision with a shark
   checkCollisionShark(shark){
-    let collisionRight = this.x + this.size/2 > shark.x - shark.size/2;
-    let collisionLeft = this.x - this.size/2 < shark.x + shark.size/2;
-    let collisionTop = this.y - this.size/2 < shark.y + shark.size/2;
-    let collisionBottom = this.y + this.size/2 > shark.y - shark.size/2;
+    const collisionRight = this.x + this.size/2 > shark.x - shark.size/2;
+    const collisionLeft = this.x - this.size/2 < shark.x + shark.size/2;
+    const collisionTop = this.y - this.size/2 < shark.y + shark.size/2;
+    const collisionBottom = this.y + this.size/2 > shark.y - shark.size/2;
     return collisionRight && collisionLeft && collisionTop && collisionBottom;
   };
 
   //Check collision with a fish
   checkFish(fish){
-    let collisionRight = this.x + this.size/2 > fish.x - fish.size/2;
-    let collisionLeft = this.x - this.size/2 < fish.x + fish.size/2;
-    let collisionTop = this.y - this.size/2 < fish.y + fish.size/2;
-    let collisionBottom = this.y + this.size/2 > fish.y - fish.size/2;
+    const collisionRight = this.x + this.size/2 > fish.x - fish.size/2;
+    const collisionLeft = this.x - this.size/2 < fish.x + fish.size/2;
+    const collisionTop = this.y - this.size/2 < fish.y + fish.size/2;
+    const collisionBottom = this.y + this.size/2 > fish.y - fish.size/2;
 
     return collisionRight && collisionLeft && collisionTop && collisionBottom;
   };

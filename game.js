@@ -23,47 +23,47 @@ class Game {
     this.levelSound = document.getElementById("levelSound"); 
     this.background = new BackgroundImg(this.canvas);
 
-    let loop = () => {
+    const loop = () => {
 
   //Push random number of bubbles to the bubbles array
   //Gives bubbles random size and random direction
   if (Math.random() > 0.96){
-      let randomNumber = (Math.random()*this.canvas.width);
-      let randomSize = Math.random()*20+2;
-      let randomDirection = Math.random()*2-1;
+      const randomNumber = (Math.random()*this.canvas.width);
+      const randomSize = Math.random()*20+2;
+      const randomDirection = Math.random()*2-1;
       this.bubbles.push(new Bubbles(this.canvas, randomNumber, randomSize, randomDirection));
   }    
   //Push random number of sharks to the sharks array
   //Give sharks a random direction
       if (Math.random() > 0.97){
-        let randomNumber = (Math.random()*this.canvas.height-30)+30;
-        let randomDirection = Math.random()*2-1;
+        const randomNumber = (Math.random()*this.canvas.height-30)+30;
+        const randomDirection = Math.random()*2-1;
         this.sharks.push(new Shark(this.canvas, randomNumber, randomDirection));
       }
 
   //Pushs different fishes to fishes array
   //Give fish a random direction
       if (Math.random() > 0.995){ 
-        let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
-        let randomDirection = Math.floor(Math.random()*2);
+        const randomNumber2 = (Math.random()*this.canvas.height-30)+30;
+        const randomDirection = Math.floor(Math.random()*2);
         this.fishes.push(new Fish(this.canvas, randomNumber2, "img/background.png", randomDirection));
       }
 
       if (Math.random() > 0.995){ 
-        let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
-        let randomDirection = Math.floor(Math.random()*2);
+        const randomNumber2 = (Math.random()*this.canvas.height-30)+30;
+        const randomDirection = Math.floor(Math.random()*2);
         this.fishes.push(new Fish(this.canvas, randomNumber2, "img/22294-tropical-fish-icon.png", randomDirection));
       }
 
       if (Math.random() > 0.995){ 
-        let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
-        let randomDirection = Math.floor(Math.random()*2);
+        const randomNumber2 = (Math.random()*this.canvas.height-30)+30;
+        const randomDirection = Math.floor(Math.random()*2);
         this.fishes.push(new Fish(this.canvas, randomNumber2, "img/starfish.png", randomDirection));
       }
 
       if (Math.random() > 0.995){ 
-        let randomNumber2 = (Math.random()*this.canvas.height-30)+30;
-        let randomDirection = Math.floor(Math.random()*2);
+        const randomNumber2 = (Math.random()*this.canvas.height-30)+30;
+        const randomDirection = Math.floor(Math.random()*2);
         this.fishes.push(new Fish(this.canvas, randomNumber2, "img/turtle.png", randomDirection));
       }
     
@@ -75,7 +75,7 @@ class Game {
       this.drawCanvas();
 
     //Sets the score in the html to the actual score
-      let endScore= document.querySelector(".score");
+      const endScore= document.querySelector(".score");
       endScore.innerHTML = `Score: ${this.player.score}`;
       endScore.style.fontSize = "x-large"; 
       endScore.style.fontWeight ="bold";
@@ -131,12 +131,12 @@ class Game {
   checkCollisions(){
 
     //add sounds if there is a collision
-    let sharkSound = document.getElementById("bite"); 
-    let fishSound = document.getElementById("fishSound"); 
-    let gridSound = document.getElementById("gridSound"); 
+    const sharkSound = document.getElementById("bite"); 
+    const fishSound = document.getElementById("fishSound"); 
+    const gridSound = document.getElementById("gridSound"); 
 
     this.sharks.forEach((shark, index) => {
-      let collidingShark = this.player.checkCollisionShark(shark);
+      const collidingShark = this.player.checkCollisionShark(shark);
       if (collidingShark){
         this.sharks.splice(index,1);
         this.player.setLives();
@@ -151,7 +151,7 @@ class Game {
     });
 
     this.fishes.forEach((fish,index)=> {
-      let collidingFish = this.player.checkFish(fish);
+      const collidingFish = this.player.checkFish(fish);
       if(collidingFish){
         this.fishes.splice(index, 1);
         this.player.setScore();
@@ -258,7 +258,7 @@ class Game {
     }
     
 
-    let level= document.querySelector(".level");
+    const level= document.querySelector(".level");
     if(level){
       level.innerHTML = `Level: ${this.player.level}`;
       level.style.fontSize = "x-large"; 

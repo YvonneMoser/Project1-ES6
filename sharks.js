@@ -16,7 +16,7 @@ class Shark  {
  
   //Draws shark in canvas
   draw(){
-    let imgShark = new Image();
+    const imgShark = new Image();
     imgShark.src = "img/findingnemo5.png";
     this.ctx.drawImage(imgShark, this.x-this.size/2, this.y-this.size/2, this.size, this.size);
   };
